@@ -1,0 +1,19 @@
+.isAncestor{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    text-align: center;
+}
+
+.hasChildren{
+    position: relative;
+}
+
+.isChildren{
+    display: flex;
+    justify-content: center;
+}
+
+.isChildren > div {
+    width: 175px;
+}
