@@ -1,0 +1,26 @@
+export let data = 
+[
+    {
+    data:"mark",
+    children:[
+        {
+            data:"Anthony"
+        },
+        {
+            data:"John"
+        }]
+    },
+    {
+        data:"clark",
+        children:[
+            {
+             data:"jerry"
+            },
+    {
+        data:"bill"
+    }
+]},
+    {
+        data:"richard"
+    }
+]
