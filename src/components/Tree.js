@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {data} from '../data/data'
+import {connect}from 'react-redux';
 
 import TreeNode from './TreeNode';
 
@@ -9,10 +9,16 @@ class Tree extends Component {
     render() {
         return (
             <div>
-                <TreeNode data={"Grand Father"} children={data} isAncestor={"isAncestor"} parentHeight={900} top={0}/>
+                <TreeNode name={this.props.ancestor} isAncestor={"isAncestor"} parentHeight={900} top={0}/>
             </div>
         );
     }
 }
 
-export default Tree;
+const mapStateToProps = (state) => {
+    return {
+        ancestor:state.createTree[0]?.ancestor
+    }
+}
+
+export default connect(mapStateToProps)(Tree);

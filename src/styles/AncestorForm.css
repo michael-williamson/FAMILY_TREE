@@ -1,0 +1,29 @@
+#ul:first-child {
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 10px 0 0 30px;
+}
+#ul {
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 10px 0 0 100px;
+    border-left: 2px solid black;
+}
+
+#ul .item {
+    width: 100%;
+    position: relative;
+}
+
+
+#item .red {
+    margin-left: 10px;
+}
+
+.button.olive {
+    border: 1px solid rgba(0, 0, 0, 0.158); 
+}
+
+#item i {
+    margin: 0;
+}
