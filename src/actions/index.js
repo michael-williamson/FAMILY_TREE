@@ -1,8 +1,43 @@
 import {CREATE_TREE} from './types';
-
 import history from '../history';
 
-export const createTree = (formValues) => {
+
+export const createTree = (formValues,fields) => {
+
+        let obj ={}; 
+
+        for(let prop in fields){
+        if(fields[prop].name === "ancestor" || fields[prop].name === "ancestorChildren"){
+            continue; 
+        }
+        let regEx = /\[\d+\]/g;
+        let arr = fields[prop].name.match(regEx);
+        //length of current array is an indicator of which generation current iteration is on
+        let len = arr?.length || 0; 
+        len = len.toString(); 
+        //creating an object out of length properties and adding # of values for each
+        if(Object.keys(obj).includes(len)){
+            obj[len] = obj[len] + 1; 
+        }else if(!Object.keys(obj).includes(len)){
+            obj[len] = 1; 
+        }
+    }
+
+
+    let determineMax = () => {
+        let max = 0; 
+        for(let prop in obj){
+            if(obj[prop] > max){
+                max = obj[prop]
+            }
+        }
+        return max
+    }
+
+    let parentHeight = (Math.floor(determineMax()/2)) * 200; 
+
+    /////****************************************************************** */
+
     let objArr = [];
 
     const mappingFn = () => {
@@ -20,11 +55,10 @@ export const createTree = (formValues) => {
         }
 
          const arrIterator = (iterObj) => {
-             let arr; 
                return iterObj.map((element)=>{
                  console.log(element, "item console");
                 let name;
-                let children; 
+                let children = null
 
                     for(let prop in element){
                         if(prop.slice(0,2)=== "fi"){
@@ -35,7 +69,7 @@ export const createTree = (formValues) => {
                             return new ObjConstructor(name,arrIterator(element[`${prop}`]))
                         }    
                     }
-                    return new ObjConstructor(name,children = null)
+                    return new ObjConstructor(name,children)
             });//////  
         }
         objArr[0].children = arrIterator(formValues[`${prop}`]); 
@@ -44,58 +78,13 @@ export const createTree = (formValues) => {
     } 
 
     let newObj = mappingFn();
-    history.push("/tree")
+    newObj.parentHeight = parentHeight; 
+
+    history.push("/tree");
+
     return {
         type: CREATE_TREE,
         payload: newObj
     }
 }
   
-
-
-
-// const mappingFn = () => {
-//     for(let prop in formValues){
-//         if(prop === "ancestor"){
-//             objArr.push({ancestor:formValues[`${prop}`]});
-//             console.log(objArr[0],"obj arr 00000000000000")
-//             objArr[0].children =[]; 
-//             console.log(objArr)
-//             continue;
-//         }
-
-//      for(let item of formValues[`${prop}`]){
-//          console.log(item, "item console");
-//          let obj = {}; 
-
-//         const arrIterator = (item) => {
-//             console.log("arrIterator is running <-------------")
-//             for(let prop in item){
-//                 console.log(prop,"prop in items")
-
-//                 if(prop.slice(0,2)=== "fi"){
-//                     obj.name = item[`${prop}`]
-//                     continue; 
-//                 }
-
-//                 // console.log(objArr.push(obj),"push obj before arr")
-
-//                 console.log(obj.name,"obj name in prop",formValues,"form vlaues")
-//                 console.log(prop.slice(0,2),"prop slice.....................")
-//                 if(prop.slice(0,2) === "ar"){
-//                     console.log("arr is running <------------------")
-//                     obj.children = item[`${prop}`];
-//                     objArr[0].children.push(obj);
-//                     // objArr.push(obj);
-//                     arrIterator([item[`${prop}`]]); 
-
-//                 }
-//             }
-
-//     }//////
-//     arrIterator(item); 
-// }
-
-// }
-// return objArr[0]
-// } 
