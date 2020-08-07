@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <Router history={history}>
-      <Route exact path="/" component={AncestorEnter}/>
-        <Route exact path="/tree" component={Tree}/>
+        <Route exact path="/" render={(routeProps)=><AncestorEnter {...routeProps}/>}/>
+        <Route exact path="/tree" render={()=><Tree/>}/>
       </Router>
     </div>
   );

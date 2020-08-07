@@ -4,13 +4,12 @@
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background: aliceblue;
     padding: auto 0;
     flex-wrap: wrap;  
     align-content: flex-start;
 }
 
-.isAncestor h5 {
+h5 {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -26,7 +25,7 @@
 }
 .hasChildren{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: row;
     align-items: center;
 }
@@ -35,25 +34,37 @@
     position: relative;
 }
 
-.hasChildren .borderDiv{
-    border-left: solid 1px black;
-    /* border-bottom: solid 1px black; */
+.hasChildren{
+    position: relative;
+}
+
+.parentToBorder .borderDiv {
+    position: absolute;
+    border-left:1px solid black;
+    width: 14px;
+    border-top: 1px solid black;
+    left: -8%; 
+}
+
+.hasChildren .borderDiv{ 
+    border-left: solid 1px black; 
     position: absolute;
     /* height: 300px; */
     width: 14px;
     border-top: 1px solid black;
     left: -8%;
     /* top: 150px; */
-}
+ }
 
-.borderDiv2 {
+/* .borderDiv2 {
     border-top: 1px solid black;
     height: 5px;
     width: 54px;
     position: absolute;
     top: 0px;
     left: 60px;
-}
+    display: none;
+} */
 
 .lastChild .borderDiv{
     height: 5px;
