@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-
+//components
 import AncestorForm from './AncestorForm';
-import '../styles/AncestorEnter.css';
+//css
+import '../../styles/AncestorEnter.css';
 
 class AncestorEnter extends Component {
     render() {

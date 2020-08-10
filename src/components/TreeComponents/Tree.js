@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {connect}from 'react-redux';
 import {Link} from 'react-router-dom';
-
-import '../styles/Tree.css';
-
+//css
+import '../../styles/Tree.css';
+//components
 import TreeNode from './TreeNode';
 
 class Tree extends Component {

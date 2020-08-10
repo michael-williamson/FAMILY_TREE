@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import {connect} from 'react-redux';
 import ChildrenNodes from './ChildrenNodes';
-import '../styles/TreeNode.css';
+import '../../styles/TreeNode.css';
 
 class TreeNode extends Component {
 

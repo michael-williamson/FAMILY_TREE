@@ -4,8 +4,8 @@ import './App.css';
 import {Router,Route} from 'react-router-dom';
 import history from './history';
 
-import Tree from './components/Tree';
-import AncestorEnter from './components/AncestorEnter';
+import Tree from './components/TreeComponents/Tree';
+import AncestorEnter from './components/FormComponents/AncestorEnter';
 
 function App() {
   return (

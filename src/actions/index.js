@@ -17,7 +17,7 @@ export const createTree = (formValues,fields) => {
         len = len.toString(); 
         //creating an object out of length properties and adding # of values for each
         if(Object.keys(obj).includes(len)){
-            obj[len] = obj[len] + 1; 
+            obj[len]++; 
         }else if(!Object.keys(obj).includes(len)){
             obj[len] = 1; 
         }
