@@ -35,15 +35,17 @@ class AncestorForm extends Component {
             <div className="inline field six wide">
             <Field 
                 name="ancestor" 
-                component={(props)=><Input {...props}/>} 
+                component={Input} 
                 label={{label:"Ancestor",className:"ui purple horizontal label"}} 
                 validate={[this.required]}
                 type="text"
+                autofocus={true}
             />
             </div>
             <FieldArray 
                 name="ancestorChildren" 
-                component={(props)=><RenderFormChildren {...props}/>}
+                component={RenderFormChildren}
+                formData={this.props}
             /> 
             <Button className="ui button primary" disabled={this.submitValidation()} text={"Submit"}/>
             <Button className="negative ui button" onClick={this.props.reset} type={"reset"} text={"Clear"}/>
@@ -58,4 +60,4 @@ const mapStateToProps =  (state) => {
     }
 } 
 
-export default connect(mapStateToProps,{createTree})(reduxForm({form:'enterAncestors',destroyOnUnmount:false})(AncestorForm));
+export default connect(mapStateToProps,{createTree})(reduxForm({form:'enterAncestors',destroyOnUnmount:false,updateUnregisteredFields:true})(AncestorForm));

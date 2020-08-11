@@ -10,6 +10,10 @@ export const createTree = (formValues,fields) => {
         if(fields[prop].name === "ancestor" || fields[prop].name === "ancestorChildren"){
             continue; 
         }
+        //created this conditional because fields stay registered even after deletion but keep a count of 0,1 or more
+        if(fields[prop].count < 1){
+            continue; 
+        }
         let regEx = /\[\d+\]/g;
         let arr = fields[prop].name.match(regEx);
         //length of current array is an indicator of which generation current iteration is on
@@ -35,10 +39,18 @@ export const createTree = (formValues,fields) => {
     }
 
     let parentHeight = (Math.floor(determineMax()/2)) * 200; 
+    parentHeight = parentHeight < 900 ? 900 : parentHeight; 
 
     /////****************************************************************** */
 
     let objArr = [];
+
+    class ObjConstructor{
+        constructor(name,children){
+            this.name = name;
+            this.children = children
+        }
+    }
 
     const mappingFn = () => {
             for(let prop in formValues){
@@ -46,13 +58,6 @@ export const createTree = (formValues,fields) => {
                     objArr.push({ancestor:formValues[`${prop}`]});
                     continue;
                 }
-
-        class ObjConstructor{
-            constructor(name,children){
-                this.name = name;
-                this.children = children
-            }
-        }
 
          const arrIterator = (iterObj) => {
                return iterObj.map((element)=>{
