@@ -5,5 +5,17 @@
 .tree a {
     position: absolute;
     left: 0; 
-    top: 55%; 
+    top: 75%; 
+}
+
+.tree h1 {
+    position: absolute;
+    top:0;
+    left: 0;
+    font-family: 'Fredericka the Great', cursive;
+    text-align: center;
+    background-color: rgba(144, 238, 144, 0.329);
+    padding: 40px; 
+    color: rgb(17, 99, 221); 
+    font-size: 50px; 
 }

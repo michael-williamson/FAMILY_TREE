@@ -9,13 +9,40 @@
     align-content: flex-start;
 }
 
-h5 {
+.isAncestor > .borderDiv {
+    display: none;
+}
+
+.isAncestor > .labelNameDiv {
+    padding-left: 0;
+    width: 160px;
+}
+
+h2 {
     height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;  
     width: 105px;
+}
+
+.labelNameDiv {
+    display: flex;
+    align-items: center;
+}
+
+.isChildren .labelNameDiv {
+    width: 221px;
+    padding-left: 14px;
+}
+
+.ui.header {
     margin: 0;
+    padding-left: 2px;
+}
+
+.label {
+    display: inline-block;
 }
 
 .isChildren{
@@ -25,9 +52,14 @@ h5 {
 }
 .hasChildren{
     display: flex;
-    /* justify-content: center; */
     flex-direction: row;
     align-items: center;
+}
+
+.noChildren {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .parentToBorder {
@@ -38,87 +70,20 @@ h5 {
     position: relative;
 }
 
-.parentToBorder .borderDiv {
+.parentToBorder > .borderDiv {
     position: absolute;
-    border-left:1px solid black;
+    border-left:3px solid #2196F3;
     width: 14px;
-    border-top: 1px solid black;
-    left: -8%; 
+    border-top:3px solid #2196F3;
+    left: 0; 
 }
 
-.hasChildren .borderDiv{ 
-    border-left: solid 1px black; 
-    position: absolute;
-    /* height: 300px; */
-    width: 14px;
-    border-top: 1px solid black;
-    left: -8%;
-    /* top: 150px; */
- }
 
-/* .borderDiv2 {
-    border-top: 1px solid black;
+.lastChild > .borderDiv{
     height: 5px;
-    width: 54px;
-    position: absolute;
-    top: 0px;
-    left: 60px;
-    display: none;
-} */
-
-.lastChild .borderDiv{
-    height: 5px;
-    border-top: solid 1px black;
+    border-top: 3px solid #2196F3;
     width: 14px;
-    /* top:150px; */
-    left: -8%; 
+    left: 0; 
     position: absolute;
     border-left:none; 
 }
-
-
-
-
-/* .isAncestor{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.isAncestor > .borderDiv{
-    display: none;
-}
-
-.hasChildren{
-    position: relative;
-}
-
-.isChildren{
-    display: flex;
-    justify-content: center;
-}
-
-.isChildren > div{
-    width: 175px;
-}
-
-.hasChildren .isChildren .borderDiv{
-    width: 87.5px;
-}
-
-.lastChild .borderDiv{
-    border-top: none;
-}
-
-.parentToBorder{
-    position: relative;
-}
-
-.borderDiv {
-    height: 24px;
-    width: 175px;
-    border-left: 1px solid black;
-    border-top: 1px solid black;
-    position: absolute;
-    left: 50%;
-} */

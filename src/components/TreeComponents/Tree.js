@@ -11,8 +11,9 @@ class Tree extends Component {
     render() {
         return (
             <div className="tree">
-                <TreeNode name={this.props.ancestor} isAncestor={"isAncestor"} parentHeight={this.props.parentHeight} top={0} {...this.props}/>
-                <Link type="button" className="ui blue mini basic button" to="/"><i className="arrow left icon"></i></Link>
+                <h1>Family Tree</h1>
+                <TreeNode name={this.props.ancestor} label={"Ancestor"} isAncestor={"isAncestor"} parentHeight={this.props.parentHeight} top={0} {...this.props}/>
+                <Link type="button" className="ui blue mini button" to="/"><i className="arrow left icon"></i></Link>
             </div>
         );
     }
