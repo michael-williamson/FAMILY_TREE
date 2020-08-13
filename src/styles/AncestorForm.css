@@ -27,3 +27,7 @@
 #item i {
     margin: 0;
 }
+
+.ui .label.spouseLabel {
+    margin-left: 10px; 
+}
