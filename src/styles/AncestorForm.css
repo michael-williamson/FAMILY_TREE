@@ -31,3 +31,18 @@
 .ui .label.spouseLabel {
     margin-left: 10px; 
 }
+  
+.checkbox.container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -13px;
+}
+
+.checkbox.container .ui.addSpouseLabel {
+    color: purple; 
+    background-color: transparent;
+    border: none;
+    margin-bottom: 2px;
+}

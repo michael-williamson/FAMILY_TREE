@@ -1,12 +1,20 @@
 import React,{Fragment} from 'react'
 
-export let Input = (...props) => {
-    let {input,label:{label,className},type,meta:{touched,error},autofocus} = props[0];
+export let Input = (...propsArr) => {
+    let [props] = propsArr;
+    let {input,labelProps,type,meta:{touched,error},autofocus,placeholder,inputClass} = props;
+    let {label,className} = labelProps;
+
     return (
         <Fragment>
         <div className={className}>{label}</div>
-        <input {...input} type={type} autoFocus={autofocus}/>
-        {touched && ((error && <span style={{color:'red'}}>{error}</span>))}
+        <input 
+            {...input} 
+            className={inputClass || null} 
+            type={type} 
+            autoFocus={autofocus} 
+            placeholder={placeholder?placeholder:null}/>
+            {touched && ((error && <div className="ui left pointing red basic label">{error}</div>))}
         </Fragment>
     )
 }
