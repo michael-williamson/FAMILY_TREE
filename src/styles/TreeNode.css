@@ -1,12 +1,11 @@
 .isAncestor {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     padding: auto 0;
     flex-wrap: wrap;  
-    align-content: flex-start;
+    align-content: center;
+    min-height: 600px;
 }
 
 .isAncestor > .borderDiv {
@@ -18,6 +17,7 @@
     width: 160px;
 }
 
+
 h2 {
     height: 100%;
     display: flex;
@@ -28,16 +28,25 @@ h2 {
 
 .labelNameDiv {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .isChildren .labelNameDiv {
     width: 221px;
+    /*border left position is also set to 14px*/
     padding-left: 14px;
 }
 
+.childLabelDiv,.spouseLabelDiv {
+    display: flex;
+    align-items: center;
+}
+
+
 .ui.header {
     margin: 0;
+    /*2px gives h2 a little bit of space from label*/
     padding-left: 2px;
 }
 
@@ -50,6 +59,17 @@ h2 {
     justify-content: center;
     flex-direction: column;
 }
+
+.pointerDiv {
+    width: 91px;
+    /* background: red; */
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    left: 130px;
+    border-top: 3px solid #2196F3;
+}
+
 .hasChildren{
     display: flex;
     flex-direction: row;
@@ -62,28 +82,54 @@ h2 {
     justify-content: center;
 }
 
+.noChildren > .borderDiv {}
+
 .parentToBorder {
     position: relative;
+    padding: 30px 0;
 }
 
 .hasChildren{
     position: relative;
 }
 
+/*prong styling for absolute borders to create a branch of a tree design*/
+
 .parentToBorder > .borderDiv {
     position: absolute;
     border-left:3px solid #2196F3;
+    /* width is same as padding of labeDiv to butt up against */
     width: 14px;
     border-top:3px solid #2196F3;
     left: 0; 
+    top: 50%; 
+    height: 50%;
 }
 
 
 .lastChild > .borderDiv{
-    height: 5px;
-    border-top: 3px solid #2196F3;
+    height: 50%;
+    border-top: none;
     width: 14px;
     left: 0; 
     position: absolute;
-    border-left:none; 
+    /* border left is set to none or border would escape the prong design */
+    border-left:3px solid #2196f3; 
+    top: 0px;
+    border-bottom: 3px solid #2196f3;
+    border-top: none;
+}
+
+.noSiblings > .borderDiv {
+    display: none;
+}
+
+.borderDiv2 {
+    height: 50%;
+    width: 14px;
+    /* border: 1px solid black; */
+    position: absolute;
+    top: 0;
+    border-bottom: none;
+    border-left: 3px solid #2196f3;
 }

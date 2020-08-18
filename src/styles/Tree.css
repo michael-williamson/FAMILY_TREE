@@ -1,17 +1,18 @@
 .tree {
     position: relative;
+    min-height: 900px;
 }
 
 .tree a {
     position: absolute;
     left: 0; 
-    top: 75%; 
+    top: 0; 
 }
 
 .tree h1 {
-    position: absolute;
+    /* position: absolute;
     top:0;
-    left: 0;
+    left: 0; */
     font-family: 'Fredericka the Great', cursive;
     text-align: center;
     background-color: rgba(144, 238, 144, 0.329);

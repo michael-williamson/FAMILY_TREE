@@ -9,10 +9,11 @@ import TreeNode from './TreeNode';
 class Tree extends Component {
 
     render() {
+        console.log(this.props)
         return (
             <div className="tree">
                 <h1>Family Tree</h1>
-                <TreeNode name={this.props.ancestor} label={"Ancestor"} isAncestor={"isAncestor"} parentHeight={this.props.parentHeight} top={0} {...this.props}/>
+                <TreeNode name={this.props.ancestor} spouseName={this.props.spouseName} percentage={`0.2`} red={`255`} label={{name:"Ancestor",spouseName:"Spouse"}} isAncestor={"isAncestor"} noSiblings={"noSiblings"} hasChildren={"hasChldren"} parentHeight={'auto'} top={0} {...this.props}/>
                 <Link type="button" className="ui blue mini button" to="/"><i className="arrow left icon"></i></Link>
             </div>
         );
@@ -22,8 +23,10 @@ class Tree extends Component {
 const mapStateToProps = (state) => {
     return {
         ancestor:state.createTree[0]?.ancestor,
+        spouseName:state.createTree[0]?.spouseName,
         children:state.createTree[0]?.children,
-        parentHeight:state.createTree[0]?.parentHeight
+        parentHeight:state.createTree[0]?.parentHeight,
+        genPxObject:state.createTree[0]?.generationPxRelation
     }
 }
 
