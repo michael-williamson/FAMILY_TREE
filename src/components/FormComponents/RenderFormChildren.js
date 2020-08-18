@@ -38,7 +38,7 @@ let RenderFormChildren = (props) => {
                return ( <div className="item" id="item" key={child}>
                     <div className="inline field ten wide">
                     <Field 
-                        name={`${child}field${index}`} 
+                        name={`${child}field${index}child`} 
                         component={Input} 
                         labelProps={{label:`Child ${index + 1}`,className:"ui purple horizontal label"}} 
                         validate={[required]}
@@ -68,7 +68,13 @@ let RenderFormChildren = (props) => {
                     inputReduxProps={fieldArrayReduxProps}
                     //anytime checkbox is selected onChange is called with values necessary to update state and use a boolean to determine
                     //whether to render spouse Field component; passing newValue, name of Field component, and prevState to compare and update
-                    onChange={(event, newValue, previousValue, name)=>fieldArrayReduxProps.getSpouseState(newValue,name,fieldArrayReduxProps.spouseState)}
+                    onChange={(event, newValue, previousValue, name)=>{
+                        if(newValue === false){
+                            fieldArrayReduxProps.clearFields(false,false,[`${child}field${index}spouse`]);
+                        }
+                        fieldArrayReduxProps.getSpouseState(newValue,name,fieldArrayReduxProps.spouseState)
+                    }
+                    }
                     />
                     <button type="button" className="ui red mini button" title="Remove Child Input" onClick={()=>fields.remove(index)}>
                         <i className="trash icon"></i>
