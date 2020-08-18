@@ -69,7 +69,12 @@ class AncestorForm extends Component {
                 inputReduxProps={this.props}
                 //anytime checkbox is selected onChange is called with values necessary to update state and use a boolean to determine
                 //whether to render spouse Field component
-                onChange={(event, newValue, previousValue, name)=>this.props.getSpouseState(newValue,name,this.props.spouseState)}
+                onChange={(event, newValue, previousValue, name)=>{
+                    if(newValue === false){
+                        this.props.clearFields(false,false,['ancestorspouse']);
+                    }
+                    this.props.getSpouseState(newValue,name,this.props.spouseState)
+                }}
             />
             </div>
             <FieldArray 
