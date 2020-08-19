@@ -1,6 +1,9 @@
 import {GET_FIELD_VALUE} from './types';
 
 export const getFieldValue = (name,value,prevState) => {
+    //takes params to compare current field with name and value of previous state,
+    //either updates value for prevState that already exists or creates a new object
+    //with current fields name and value,  fired from onChange event; 
     function objConstructor (name,value) {
         this.name = name;
         this.value = value; 

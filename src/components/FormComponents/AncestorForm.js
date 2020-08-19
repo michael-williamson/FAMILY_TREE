@@ -9,10 +9,12 @@ import {SelectInput} from '../ReusableComponents/SelectInput';
 import '../../styles/AncestorForm.css'
    
 class AncestorForm extends Component {
-
+    //validate function has to be declared outside of render or else it will create
+    //an infinite loop,  passed down through props to each component
     required = value => value ? undefined : 'Required';
 
     submitValidation = () => {
+        //form will display valid = true if all field level validators are satisfied
         if(!this.props.valid || this.props.pristine){
             return true
         }else{
@@ -32,13 +34,13 @@ class AncestorForm extends Component {
     render() {
         return (
         <form className="ui form" onSubmit={this.props.handleSubmit(this.props.onSubmit)} autoComplete="off">
-            <div className="inline field ten wide">
+            <div className="inline field" id="ancestorChildren">
             <Field 
             //add character max to all inputs that way nobody can copy paste a shit ton of text as I just did accidentally
                 name="ancestor" 
                 component={Input} 
                 labelProps={{label:"Ancestor",className:"ui purple horizontal label"}} 
-                validate={[this.required]}
+                validate={this.required}
                 type="text"
                 autofocus={true}
                 inputClass={""}
@@ -48,16 +50,16 @@ class AncestorForm extends Component {
                 //leaving in unused parameters for reference; hard coding "ancestorChildren" b/c FieldArrays
                 //within RenderFormChildren component will be assigned different names for each array but 
                 //this FieldArray had to be assigned manually b/c not in iteration; 
-                onBlur={(event, newValue, previousValue, name) => this.props.getFieldValue("ancestorChildren",newValue,this.props.fieldValue)}
+                onChange={(event, newValue, previousValue, name) => this.props.getFieldValue("ancestorChildren",newValue,this.props.fieldValue)}
                 //Giving the field an ID so that I can sync its value with the add child button;  it doesn't really need an ID but all following
                 //input fields will need them to link their value to parent array(or component) and its add child button
-                ID={"ancestorChildren"}
             />
             {this.spouseState("isSpouse") &&
             <Field 
                 //need to capitalize spouse
                 name={`ancestorspouse`} 
                 component={Input} 
+                autofocus={true}
                 labelProps={{label:`Spouse`,className:"ui purple horizontal label spouseLabel"}} 
                 inputReduxProps={this.props}
                 placeholder={"spouse"}
@@ -81,6 +83,8 @@ class AncestorForm extends Component {
                 name="ancestorChildren" 
                 component={RenderFormChildren}
                 fieldArrayReduxProps={this.props}
+                required={this.required}
+                ID={"ancestorChildren"}
             /> 
             <Button className="ui button primary" disabled={this.submitValidation()} text={"Submit"}/>
             <Button className="negative ui button" onClick={this.props.reset} type={"reset"} text={"Clear"}/>

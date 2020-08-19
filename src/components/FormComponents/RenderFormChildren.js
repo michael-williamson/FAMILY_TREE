@@ -5,8 +5,10 @@ import {Input} from '../ReusableComponents/Inputs';
 import {SelectInput} from '../ReusableComponents/SelectInput';
 
 let RenderFormChildren = (props) => {
-    let {fields,fieldArrayReduxProps} = props; 
-    let required = value => value ? undefined : 'Required';
+    //fields are associated with Field Array,  fieldArrayReduxProps
+    //are just the main group of props being passed all the way down,
+    //and required is the validate function passed down
+    let {fields,fieldArrayReduxProps,required,ID} = props; 
 
     let addValidation = () => {
         if(!fieldArrayReduxProps.valid || fieldArrayReduxProps.pristine){
@@ -15,8 +17,9 @@ let RenderFormChildren = (props) => {
             return false
         }
     }
-
-    let btnName = "Ancestor"
+    //button receives name associated with its parent array,  this is 
+    //taken care of by the fieldValue state
+    let btnName = ""
     for(let i = 0; i < fieldArrayReduxProps.fieldValue.length; i++){
         if(fields.name === fieldArrayReduxProps.fieldValue[i].name){
             btnName = fieldArrayReduxProps.fieldValue[i].value
@@ -33,30 +36,28 @@ let RenderFormChildren = (props) => {
     }
 
     return (
-        <div className="ui list" id="ul">
+        <div className="ui list" id="ul" id={ID}>
             {fields.map((child,index)=>{
-               return ( <div className="item" id="item" key={child}>
-                    <div className="inline field ten wide">
+               return ( <div className="item" id="item" key={index}>
+                    <div className="inline field">
                     <Field 
-                        name={`${child}field${index}child`} 
+                        name={`${child}field`} 
                         component={Input} 
                         labelProps={{label:`Child ${index + 1}`,className:"ui purple horizontal label"}} 
-                        validate={[required]}
+                        validate={required}
                         autofocus={true}
                         inputClass={""}
                         inputReduxProps={fieldArrayReduxProps}
-                        //onBlur event to capture input value and pass it into redux and back down to add child button
-                        //leaving in unused parameters for reference; hard coding "ancestorChildren" b/c FieldArrays
-                        //within RenderFormChildren component will be assigned different names for each array but 
-                        //this FieldArray had to be assigned manually b/c not in iteration; 
-                        onBlur={(event, newValue, previousValue, name) => fieldArrayReduxProps.getFieldValue(`${child}arr${index}`,newValue,fieldArrayReduxProps.fieldValue)} 
+                        //onChange event to capture input value and pass it into redux and back down to add child button
+                        onChange={(event, newValue, previousValue, name) => fieldArrayReduxProps.getFieldValue(`${child}arr`,newValue,fieldArrayReduxProps.fieldValue)} 
                         //Giving the field an ID so that I can sync its value to parent array(or component) and its add child button       
                         ID={`${child}arr${index}`}
                     />
                     {spouseState(`${child}isSpouse`) &&
                     <Field 
-                        name={`${child}field${index}spouse`} 
+                        name={`${child}spouse`} 
                         component={Input} 
+                        autofocus={true}
                         labelProps={{label:`Spouse`,className:"ui purple horizontal label spouseLabel"}} 
                         inputReduxProps={fieldArrayReduxProps}
                         placeholder={"spouse"}
@@ -81,14 +82,17 @@ let RenderFormChildren = (props) => {
                     </button>
                     </div>
                     <FieldArray 
-                        name={`${child}arr${index}`} 
+                        name={`${child}arr`} 
                         component={RenderFormChildren}
                         fieldArrayReduxProps={fieldArrayReduxProps}
+                        required={required}
+                        ID={`${child}arr`}
                     /> 
                 </div>);
             })}
              <button className="tiny ui button olive" type="button" onClick={()=>fields.push({})} disabled={addValidation()}>
-                {`Add Child to ${btnName}`}
+             <i className="user plus icon"></i>
+             { btnName ? `Add Child to ${btnName}` : `Add Child`}
              </button>
         </div>
     );

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
 //components
 import AncestorForm from './AncestorForm';
+import IconTree from './IconTree';
 //action creators
 import {createTree} from '../../actions/index';
 import {getFieldValue} from '../../actions/index';
@@ -22,7 +23,10 @@ class AncestorEnter extends Component {
     render() {
         return (
             <div className="ancestorEnter">
-                <h1>Family Tree</h1>
+                <div className="formHeader">
+                    <h1>Family Tree</h1>       
+                    <IconTree/>  
+                </div>
                 <AncestorForm {...this.props} onSubmit={this.onSubmit}/>
             </div>
         );
