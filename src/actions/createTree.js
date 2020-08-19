@@ -117,30 +117,18 @@ const mappingFn = () => {
      const arrIterator = (iterObj,generationArg,pxEx) => {
            let pxCountArr = generationTalley(); 
            return iterObj.map((element)=>{
-             console.log(element, "item console");
-            let name;
-            let spouseName; 
-            let children = null;
             let currentGeneration = generationArg; 
             let pxValue = pxCountArr[currentGeneration-1].pxCount;
             // let parentPx = currentPx;
             let generationCounter = generationArg; 
+            let name = element[`field`];
+            let spouseName = element[`spouse`]  || undefined; 
+            let children = element[`arr`] || undefined; 
 
-                for(let prop in element){
-                    if(prop.indexOf('child') > -1){
-                        name = element[`${prop}`];
-                    }
-                    if(prop.indexOf("spouse") > -1){
-                        spouseName = element[`${prop}`]
-                    }
-                    if(prop.slice(0,2) === "ar"){
-                        children = element[`${prop}`];
-                        console.log(children,"LINE 142 CHILDREN")
-                        //if there are children that will be the next generation
-                        generationCounter+=1;
-                    }    
-                }
-                return (children === null ? 
+            //if there are children that will be the next generation
+            if (children)  generationCounter+=1 
+
+                return (!children ? 
                         new ObjConstructor(name,spouseName,children,currentGeneration,30) : 
                         new ObjConstructor(name,spouseName,arrIterator(children,generationCounter),currentGeneration,pxValue));
         });//////  
