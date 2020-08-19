@@ -6,7 +6,8 @@
 #ul {
     list-style-type: none;
     margin: 1em 0;
-    padding: 10px 0 0 100px;
+    /*was at 40px left padding gonna try 40*/
+    padding: 10px 0 0 40px;
     border-left: 2px solid black;
 }
 

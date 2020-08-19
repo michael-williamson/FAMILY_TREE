@@ -1,10 +1,28 @@
+.ancestorEnter{
+    position: relative;
+}
+
+.formHeader {
+    text-align: center;
+    /* background-color: rgba(144, 238, 144, 0.329); */
+    padding: 23px;
+    color: rgb(17, 99, 221); 
+    margin-bottom: 20px;
+    /* border: 8px; */
+    border-radius: 5px;
+    /* border-style: ridge;
+    border-color: burlywood; */
+}
+
 .ancestorEnter h1 {
     font-family: 'Fredericka the Great', cursive;
-    text-align: center;
-    background-color: rgba(144, 238, 144, 0.329);
-    padding: 40px; 
-    color: rgb(17, 99, 221); 
     font-size: 50px; 
+    padding: 1%;
+    /* text-shadow: 3px 2px 0px #77de65; */
+    /* background-color: #00ced169; */
+    width: 36%;
+    /* border-radius: 10px;
+    box-shadow: inset -1px 2px 20px 0px #fbff00; */
 }
 
 .spouseModeBtn {
@@ -12,3 +30,4 @@
     right: 200px;
     z-index: 100;
 }
+
