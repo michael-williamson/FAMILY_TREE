@@ -29,12 +29,12 @@ class ChildrenNodes extends Component {
                                     label={{name:`Child ${i + 1}`,spouseName:"Spouse"}} 
                                     key={i} 
                                     //first child receives unique styling for brackets mainly
-                                    firstChild={i === firstChild?"firstChild":null}
+                                    firstChild={i === firstChild?"firstChild":""}
                                     //middle child receives unique styling for brackets mainly
                                     borderDiv2={i=== firstChild || i === lastChild? null:<div className='borderDiv2'></div>}
                                     //last child receives unique styling for brackets mainly
-                                    lastChild={i=== lastChild?"lastChild":null} 
-                                    noSiblings={noSiblings?"noSiblings":null}
+                                    lastChild={i=== lastChild?"lastChild":""} 
+                                    noSiblings={noSiblings?"noSiblings":""}
                                     parentHeight={30} 
                                     // top={height/2}
                                     generation={generation}
@@ -49,12 +49,12 @@ class ChildrenNodes extends Component {
                                         label={{name:`child ${i + 1}`,spouseName:"Spouse"}}
                                         key={i} 
                                         //first child receives unique styling for brackets mainly
-                                        firstChild={i === firstChild?"firstChild":null}
+                                        firstChild={i === firstChild?"firstChild":""}
                                         //middle child receives unique styling for brackets mainly
                                         borderDiv2={i=== firstChild || i === lastChild? null:<div className='borderDiv2'></div>}
                                         //last child receives unique styling for brackets mainly
-                                        lastChild={i=== lastChild?"lastChild":null} 
-                                        noSiblings={noSiblings?"noSiblings":null}
+                                        lastChild={i=== lastChild?"lastChild":""} 
+                                        noSiblings={noSiblings?"noSiblings":""}
                                         parentHeight={'auto'} 
                                         // top={child.pxCount/2} 
                                         children = {child.children} 

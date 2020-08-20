@@ -36,7 +36,7 @@ let RenderFormChildren = (props) => {
     }
 
     return (
-        <div className="ui list" id="ul" id={ID}>
+        <div className="ui list" id="ul">
             {fields.map((child,index)=>{
                return ( <div className="item" id="item" key={index}>
                     <div className="inline field">
@@ -90,7 +90,12 @@ let RenderFormChildren = (props) => {
                     /> 
                 </div>);
             })}
-             <button className="tiny ui button olive" type="button" onClick={()=>fields.push({})} disabled={addValidation()}>
+             <button 
+             className="tiny ui button olive" 
+             type="button" 
+             onClick={()=>fields.push({})} 
+             disabled={addValidation()} 
+            >
              <i className="user plus icon"></i>
              { btnName ? `Add Child to ${btnName}` : `Add Child`}
              </button>

@@ -13,7 +13,15 @@ class Tree extends Component {
         return (
             <div className="tree">
                 <h1>Family Tree</h1>
-                <TreeNode name={this.props.ancestor} spouseName={this.props.spouseName} percentage={`0.2`} red={`255`} label={{name:"Ancestor",spouseName:"Spouse"}} isAncestor={"isAncestor"} noSiblings={"noSiblings"} hasChildren={"hasChldren"} parentHeight={'auto'} top={0} {...this.props}/>
+                <TreeNode 
+                name={this.props.ancestor} 
+                spouseName={this.props.spouseName} 
+                label={{name:"Ancestor",spouseName:"Spouse"}} 
+                isAncestor={"isAncestor"} 
+                noSiblings={"noSiblings"} 
+                hasChildren={"hasChildren"}
+                parentHeight={'auto'} 
+                {...this.props}/>
                 <Link type="button" className="ui blue mini button" to="/"><i className="arrow left icon"></i></Link>
             </div>
         );

@@ -5,30 +5,44 @@ import '../../styles/TreeNode.css';
 
 class TreeNode extends Component {
 
+        hideOrShowIsChildren = (e) => {
+            let sibling = e.target.nextSibling;
+            let siblingClassList = sibling.classList;
+            siblingClassList.toggle("hide")
+
+            let iconElement = e.target;
+            let iconElementClassList = iconElement.classList;
+            iconElementClassList.toggle("minus");
+            iconElementClassList.toggle("plus");
+        }
+
         render() {
-            let {parentHeight,isAncestor,hasChildren,lastChild,borderDiv2,name,spouseName,label,top,noSiblings} = this.props; 
+            let {parentHeight,isAncestor,hasChildren,lastChild,borderDiv2,name,spouseName,label,noSiblings} = this.props; 
             return ( 
                 <div 
                     style={{height:`${parentHeight}px`}} 
-                    className = {`${isAncestor ? isAncestor:""} ${hasChildren ? hasChildren: "noChildren"} parentToBorder ${lastChild? lastChild:""} ${noSiblings}`} 
+                    className = {`${isAncestor ? isAncestor:""} ${hasChildren ? hasChildren: "noChildren"} ${isAncestor ? "":"parentToBorder"} ${lastChild? lastChild:""} ${noSiblings}`} 
                 >
                     <div className="borderDiv"></div>
                     {borderDiv2?borderDiv2:""}
                     <div className="labelNameDiv">
                         <div className="childLabelDiv">
                             <div className="ui purple horizontal label">{label.name}</div>
-                            <h2 className="ui blue header">{name? name : "loading"}</h2> 
+                            <h4 className="ui blue header">{name? name : "loading"}</h4> 
                         </div>
                         {spouseName?  <div className="spouseLabelDiv">
                                         <div className="ui purple horizontal label">{label.spouseName}</div>
-                                        <h2 className="ui blue header">{spouseName? spouseName : "loading"}</h2> 
+                                        <h4 className="ui blue header">{spouseName? spouseName : "loading"}</h4> 
                                     </div> : null}
 
                     </div>
-                    {hasChildren? <div className="isChildren"> 
-                                    {isAncestor?null:<div className="pointerDiv"></div>}
-                                    <ChildrenNodes {...this.props}/>
-                                </div>
+                    {hasChildren? <div style={{position:'relative'}}>
+                                    <i class="minus purple icon minimizer" onClick={this.hideOrShowIsChildren}></i>
+                                    <div className="isChildren"> 
+                                        {isAncestor?null:<div className="pointerDiv"></div>}
+                                        <ChildrenNodes {...this.props}/>
+                                    </div>
+                                    </div>
                      :null}
                 </div >
             );
