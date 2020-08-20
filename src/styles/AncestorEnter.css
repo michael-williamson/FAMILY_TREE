@@ -1,5 +1,9 @@
 .ancestorEnter{
     position: relative;
+    width: 80%;
+    margin:0 auto; 
+    background-color: rgba(255, 255, 255, 0.281);
+    padding:0px 30px 35px; 
 }
 
 .formHeader {

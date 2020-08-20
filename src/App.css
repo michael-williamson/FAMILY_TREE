@@ -7,10 +7,10 @@ body {
 }
 
 .App {
-    background-color: rgba(255, 255, 255, 0.281);
-    width: 80%;
-    margin: 0 auto;
-    padding:0px 30px 35px; 
+    width: 100%;
+    /* min-width: 80%; */
+    /* margin: 0 auto; */
+    /* padding:0px 30px 35px;  */
     /* border-style: groove;
     border-color: #fff900;
     border-width: 13px; */

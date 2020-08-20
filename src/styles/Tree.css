@@ -1,6 +1,12 @@
 .tree {
     position: relative;
     min-height: 900px;
+    background-color: rgb(255 255 255 / 92%);
+    padding:0px 30px 35px; 
+    margin: 0 auto;
+    width: 80%; 
+    overflow-x: scroll;
+    box-shadow: inset -1px 0px 8px 0px black;
 }
 
 .tree a {
@@ -15,8 +21,9 @@
     left: 0; */
     font-family: 'Fredericka the Great', cursive;
     text-align: center;
-    background-color: rgba(144, 238, 144, 0.329);
-    padding: 40px; 
+    /* background-color: rgba(144, 238, 144, 0.329); */
+    padding: 40px 0 0; 
     color: rgb(17, 99, 221); 
     font-size: 50px; 
+    margin: 0; 
 }

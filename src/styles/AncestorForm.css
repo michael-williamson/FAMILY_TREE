@@ -6,7 +6,7 @@
 #ul {
     list-style-type: none;
     margin: 1em 0;
-    /*was at 40px left padding gonna try 40*/
+    /*was at 100px left padding gonna try 40*/
     padding: 10px 0 0 40px;
     border-left: 2px solid black;
 }
@@ -23,6 +23,11 @@
 
 .button.olive {
     border: 1px solid rgba(0, 0, 0, 0.158); 
+}
+
+.ui.button:disabled {
+    pointer-events: auto;
+    cursor: not-allowed;
 }
 
 #item i {
