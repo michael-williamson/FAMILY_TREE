@@ -113,9 +113,10 @@ const mappingFn = () => {
     objArr.push({ancestor:formValues[`ancestor`]});  
     objArr[0].spouseName =formValues[`ancestorspouse`];
 
-
      const arrIterator = (iterObj,generationArg,pxEx) => {
            let pxCountArr = generationTalley(); 
+
+           if(!iterObj) return; 
            return iterObj.map((element)=>{
             let currentGeneration = generationArg; 
             let pxValue = pxCountArr[currentGeneration-1].pxCount;
