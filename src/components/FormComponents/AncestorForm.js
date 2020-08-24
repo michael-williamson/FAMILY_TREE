@@ -4,14 +4,19 @@ import {Field,FieldArray} from 'redux-form';
 import RenderFormChildren from './RenderFormChildren';
 import {Button} from '../ReusableComponents/Button';
 import {Input} from '../ReusableComponents/Inputs';
-import {SelectInput} from '../ReusableComponents/SelectInput';
+import {SelectInput} from '../ReusableComponents/SelectInput';  
+import {DemoBoxLeftPointer} from './helperComponents/DemoBoxLeftPointer';
+import {DemoBoxDownPointer} from './helperComponents/DemoBoxDownPointer';
 //css
-import '../../styles/AncestorForm.css'
+import '../../styles/FormComponents/AncestorForm.css'
    
 class AncestorForm extends Component {
+
     //validate function has to be declared outside of render or else it will create
     //an infinite loop,  passed down through props to each component
     required = value => value ? undefined : 'Required';
+
+    maxLength = max => value => value && value.length > max ? `Must be ${max} characters or less` : undefined;
 
     submitValidation = () => {
         //form will display valid = true if all field level validators are satisfied
@@ -34,16 +39,15 @@ class AncestorForm extends Component {
     render() {
         return (
         <form className="ui form" onSubmit={this.props.handleSubmit(this.props.onSubmit)} autoComplete="off">
-            <div className="inline field" id="ancestorChildren">
+            <div className="twelve wide mobile inline tablet column" id="ancestorChildren">
             <Field 
-            //add character max to all inputs that way nobody can copy paste a shit ton of text as I just did accidentally
                 name="ancestor" 
                 component={Input} 
                 labelProps={{label:"Ancestor",className:"ui purple horizontal label"}} 
-                validate={this.required}
+                validate={[this.required,this.maxLength(50)]}
                 type="text"
                 autofocus={true}
-                inputClass={""}
+                inputClass={"ui input"}
                 //try destructuring this.props down to only necessary data
                 inputReduxProps={this.props}
                 //event to capture input value and pass it into redux and back down to add child button
@@ -54,10 +58,12 @@ class AncestorForm extends Component {
                 //Giving the field an ID so that I can sync its value with the add child button;  it doesn't really need an ID but all following
                 //input fields will need them to link their value to parent array(or component) and its add child button
             />
+            {this.props.cancelIntro ? null : <DemoBoxLeftPointer/>}
             {this.spouseState("isSpouse") &&
             <Field 
-                //need to capitalize spouse
+                //need to capitalize spouse?
                 name={`ancestorspouse`} 
+                validate={this.maxLength(50)}
                 component={Input} 
                 autofocus={true}
                 labelProps={{label:`Spouse`,className:"ui purple horizontal label spouseLabel"}} 
@@ -69,6 +75,7 @@ class AncestorForm extends Component {
                 name="isSpouse" 
                 labelProps={{label:`${this.spouseState("isSpouse")?'Remove Spouse':'Add Spouse'}`,className:"ui basic mini label addSpouseLabel"}} 
                 inputReduxProps={this.props}
+                DemoBoxDownPointer={this.props.cancelIntro ? null : <DemoBoxDownPointer/>}
                 //anytime checkbox is selected onChange is called with values necessary to update state and use a boolean to determine
                 //whether to render spouse Field component
                 onChange={(event, newValue, previousValue, name)=>{
@@ -84,6 +91,7 @@ class AncestorForm extends Component {
                 component={RenderFormChildren}
                 fieldArrayReduxProps={this.props}
                 required={this.required}
+                maxLength={this.maxLength}
                 ID={"ancestorChildren"}
             /> 
             <Button className="ui button primary" disabled={this.submitValidation()} text={"Submit"}/>

@@ -8,7 +8,11 @@ let RenderFormChildren = (props) => {
     //fields are associated with Field Array,  fieldArrayReduxProps
     //are just the main group of props being passed all the way down,
     //and required is the validate function passed down
-    let {fields,fieldArrayReduxProps,required,ID} = props; 
+    let {fields,fieldArrayReduxProps,required,maxLength,ID,ordinalNumerals} = props; 
+
+    let regEx = /\[\d+\]/g;
+    let bracketArr = fields.name.match(regEx);
+    console.log(bracketArr)
 
     let addValidation = () => {
         if(!fieldArrayReduxProps.valid || fieldArrayReduxProps.pristine){
@@ -39,12 +43,12 @@ let RenderFormChildren = (props) => {
         <div className="ui list" id="ul">
             {fields.map((child,index)=>{
                return ( <div className="item" id="item" key={index}>
-                    <div className="inline field">
+                    <div className="six wide mobile inline tablet field">
                     <Field 
                         name={`${child}field`} 
                         component={Input} 
-                        labelProps={{label:`Child ${index + 1}`,className:"ui purple horizontal label"}} 
-                        validate={required}
+                        labelProps={{label:`${fieldArrayReduxProps.ordinalNumerals(index + 1)} Child`,className:"ui purple horizontal label"}} 
+                        validate={[required,maxLength(50)]}
                         autofocus={true}
                         inputClass={""}
                         inputReduxProps={fieldArrayReduxProps}
@@ -56,6 +60,7 @@ let RenderFormChildren = (props) => {
                     {spouseState(`${child}isSpouse`) &&
                     <Field 
                         name={`${child}spouse`} 
+                        validate={maxLength(50)}
                         component={Input} 
                         autofocus={true}
                         labelProps={{label:`Spouse`,className:"ui purple horizontal label spouseLabel"}} 
@@ -81,13 +86,14 @@ let RenderFormChildren = (props) => {
                         <i className="trash icon"></i>
                     </button>
                     </div>
-                    <FieldArray 
-                        name={`${child}arr`} 
-                        component={RenderFormChildren}
-                        fieldArrayReduxProps={fieldArrayReduxProps}
-                        required={required}
-                        ID={`${child}arr`}
-                    /> 
+                    {bracketArr?.length > 3 ? <div className="limitMessage">No more than 5 generations</div>: <FieldArray 
+                                                                                                                    name={`${child}arr`} 
+                                                                                                                    component={RenderFormChildren}
+                                                                                                                    fieldArrayReduxProps={fieldArrayReduxProps}
+                                                                                                                    required={required}
+                                                                                                                    maxLength={maxLength}
+                                                                                                                    ID={`${child}arr`}
+                                                                                                                    />}
                 </div>);
             })}
              <button 
