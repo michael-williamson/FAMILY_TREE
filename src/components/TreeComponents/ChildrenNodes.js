@@ -4,8 +4,6 @@ import TreeNode from './TreeNode';
 
 class ChildrenNodes extends Component {
 
-     
-
     renderChildNodes(parentHeight,Arg){
         if (this.props.children) {
             //setting index for each last children for border styling on last child
@@ -15,18 +13,14 @@ class ChildrenNodes extends Component {
             let generation = this.props.children[0].generation; 
             let genPxObject = this.props.genPxObject; 
             let lastGeneration = this.props.genPxObject[this.props.genPxObject?.length - 1].generation
-            // let lastChild = undefined;
-            // let generation = 1;
-            // let lastGeneration = 1; 
-            // let height = parentHeight/this.props.children.length;
-            // height = height > 200 ? height : 200; 
-            // let top = height/2; 
+            let {colorArray,ordinalNumerals} = this.props; 
+
             return this.props.children.map((child,i) => {
                 if (!child.children) {
                         return <TreeNode 
                                     name={child.name} 
                                     spouseName={child.spouseName}
-                                    label={{name:`Child ${i + 1}`,spouseName:"Spouse"}} 
+                                    label={{name:`${ordinalNumerals(i + 1)} Child`,spouseName:"Spouse",color:`${colorArray[generation - 1]}`}} 
                                     key={i} 
                                     //first child receives unique styling for brackets mainly
                                     firstChild={i === firstChild?"firstChild":""}
@@ -39,6 +33,8 @@ class ChildrenNodes extends Component {
                                     // top={height/2}
                                     generation={generation}
                                     genPxObject={genPxObject}
+                                    colorArray={colorArray}
+                                    ordinalNumerals={ordinalNumerals}
                                     // percentage={`0.${generation + 2}`}
                                     // red={`${255 - (generation * 35)}`}
                                 />
@@ -46,7 +42,7 @@ class ChildrenNodes extends Component {
                             return  <TreeNode 
                                         name ={child.name} 
                                         spouseName={child.spouseName}
-                                        label={{name:`child ${i + 1}`,spouseName:"Spouse"}}
+                                        label={{name:`${ordinalNumerals(i + 1)} Child`,spouseName:"Spouse",color:`${colorArray[generation - 1]}`}}
                                         key={i} 
                                         //first child receives unique styling for brackets mainly
                                         firstChild={i === firstChild?"firstChild":""}
@@ -61,6 +57,8 @@ class ChildrenNodes extends Component {
                                         hasChildren = {"hasChildren"}
                                         generation={generation}
                                         genPxObject={genPxObject}
+                                        colorArray={colorArray}
+                                        ordinalNumerals={ordinalNumerals}
                                         // percentage={`0.${generation + 2}`}
                                         // red={`${255 - (generation * 35)}`}
                                     />

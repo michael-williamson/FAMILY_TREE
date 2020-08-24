@@ -2,27 +2,44 @@ import React, { Component } from 'react';
 import {connect}from 'react-redux';
 import {Link} from 'react-router-dom';
 //css
-import '../../styles/Tree.css';
+import '../../styles/TreeComponents/Tree.css';
 //components
 import TreeNode from './TreeNode';
+import {TreeKey} from './helperComponents/TreeKey';
+import {ScrollMessage} from './helperComponents/ScrollMessage';
+
 
 class Tree extends Component {
+    //passing down for label styling for each generation
+    colorArray = ["orange","green","teal","violet","olive"];
+
+    ordinalNumerals = (n) => {
+        let s = ["th", "st", "nd", "rd"];
+        let v = n%100;
+       return n + (s[(v-20)%10] || s[v] || s[0]);
+      }
 
     render() {
-        console.log(this.props)
+        console.log("render has run")
         return (
             <div className="tree">
+                <i class="play icon" id="playIcon" onClick={this.cancelSessionStorage}></i>
                 <h1>Family Tree</h1>
+                <ScrollMessage/> 
+                <TreeKey colorArray={this.colorArray}/>
                 <TreeNode 
-                name={this.props.ancestor} 
-                spouseName={this.props.spouseName} 
-                label={{name:"Ancestor",spouseName:"Spouse"}} 
-                isAncestor={"isAncestor"} 
-                noSiblings={"noSiblings"} 
-                hasChildren={"hasChildren"}
-                parentHeight={'auto'} 
-                {...this.props}/>
-                <Link type="button" className="ui blue mini button" to="/"><i className="arrow left icon"></i></Link>
+                    name={this.props.ancestor} 
+                    spouseName={this.props.spouseName} 
+                    label={{name:"Ancestor",spouseName:"Spouse",color:"purple"}} 
+                    isAncestor={"isAncestor"} 
+                    noSiblings={"noSiblings"} 
+                    hasChildren={"hasChildren"}
+                    parentHeight={'auto'}
+                    colorArray={this.colorArray} 
+                    ordinalNumerals={this.ordinalNumerals}
+                    {...this.props}
+                />
+                <Link type="button" className="ui blue mini button" to="/"><i className="arrow left icon"></i>Back to Form</Link>
             </div>
         );
     }
