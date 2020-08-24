@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import {connect} from 'react-redux';
 import ChildrenNodes from './ChildrenNodes';
-import '../../styles/TreeNode.css';
+import '../../styles/TreeComponents/TreeNode.css';
 
 class TreeNode extends Component {
 
@@ -27,12 +27,12 @@ class TreeNode extends Component {
                     {borderDiv2?borderDiv2:""}
                     <div className="labelNameDiv">
                         <div className="childLabelDiv">
-                            <div className="ui purple horizontal label">{label.name}</div>
-                            <h4 className="ui blue header">{name? name : "loading"}</h4> 
+                            <div className={`ui ${label.color} horizontal label`}>{label.name}</div>
+                            <h4 className="ui blue header treeh4">{name? name : "loading"}</h4> 
                         </div>
                         {spouseName?  <div className="spouseLabelDiv">
                                         <div className="ui purple horizontal label">{label.spouseName}</div>
-                                        <h4 className="ui blue header">{spouseName? spouseName : "loading"}</h4> 
+                                        <h4 className="ui blue header treeh4">{spouseName? spouseName : "loading"}</h4> 
                                     </div> : null}
 
                     </div>

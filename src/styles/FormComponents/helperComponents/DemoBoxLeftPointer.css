@@ -1,0 +1,114 @@
+@keyframes demoBoxLeftPointer {
+    0% {
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+        visibility: visible;
+    }
+    90%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
+.demoBoxLeftPointer {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: 11221;
+    animation: demoBoxDownPointer;
+    animation-duration: 10000ms;
+    animation-delay: 4000ms;
+    top:12px;
+    right: 50%; 
+}
+
+@keyframes leftPointerAnimation{
+    0%{
+        opacity: 100%;
+        visibility: visible;
+        transform: translate(0px,0px);
+    }
+    40%{
+        transform: translate(0px,0px);
+    }
+    50%{
+        transform: translate(-223px,65px);
+    }
+    90%{
+        opacity: 100%;
+        transform: translate(-223px,65px);
+    }
+    100%{
+        opacity: 0%;
+        transform: translate(-223px,65px);
+        visibility: hidden;
+    }
+}
+
+i#pointLeftHandDemoBox {
+    position: absolute;
+    visibility: hidden;
+    z-index: 1223;
+    animation-name: leftPointerAnimation;
+    animation-duration: 10000ms;
+    animation-delay: 4000ms;
+}
+
+@keyframes leftPointerMessage {
+    0%{
+        transform: scale(0);
+    }
+    10%{
+        transform: scale(1);
+    }
+    90%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+
+.leftPointerMessage1{
+    position: absolute;
+    z-index: 12321;
+    transform: scale(0);
+    left: 100px;
+    top: -59px;
+    width: 189px;
+    text-align: center;
+    background-color: #297cc3;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    animation-name: leftPointerMessage;
+    animation-duration: 5000ms;
+    animation-delay: 4000ms;
+}
+
+.leftPointerMessage2{
+    position: absolute;
+    z-index: 12214;
+    transform: scale(0);
+    left: -16px;
+    top: 17px;
+    width: 189px;
+    text-align: center;
+    background-color: #297cc3;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    animation-name: leftPointerMessage;
+    animation-duration: 5000ms;
+    animation-delay: 9000ms;
+}

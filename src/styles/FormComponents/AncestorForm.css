@@ -1,0 +1,97 @@
+#ul:first-child {
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 10px 0 0 30px;
+}
+#ul {
+    list-style-type: none;
+    margin: 1em 0;
+    /*was at 100px left padding gonna try 40*/
+    padding: 10px 0 0 40px;
+    border-left: 2px solid black;
+}
+
+#ul .item {
+    width: 100%;
+    position: relative;
+}
+
+
+/* #item .red {
+    margin-left: 10px;
+} */
+
+#item .red {
+    margin-left: 10px;
+    margin-top: 10px; 
+}
+
+.button.olive {
+    border: 1px solid rgba(0, 0, 0, 0.158); 
+}
+
+.ui.button {
+    cursor: pointer;
+}
+
+.ui.button:disabled {
+    pointer-events: auto!important;
+    cursor: not-allowed;
+}
+
+#item i {
+    margin: 0;
+}
+
+/* .ui .label.spouseLabel {
+    margin-left: 10px; 
+} */
+  
+.checkbox.container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -13px;
+}
+
+.checkbox.container .ui.addSpouseLabel {
+    color: purple; 
+    background-color: transparent;
+    border: none;
+    margin-bottom: 2px;
+}
+
+/* .limitMessage {
+    color: white;
+    background-color: #297cc3;
+    width: 25%;
+    padding: 5px;
+    border-radius: 22px;
+    text-align: center;
+    margin-left: 70px;
+} */
+.limitMessage {
+    color: white;
+    background-color: #297cc3;
+    width: 200px;
+    padding: 5px;
+    border-radius: 22px;
+    text-align: center;
+}
+
+
+body ::-webkit-scrollbar-thumb{
+    background-color: #297cc3;
+    height: 30px;
+}
+
+@media screen and (min-width: 300px) {
+
+    /* .ui.left.pointing.red.basic.label {
+        display: block;
+    } */
+    .checkbox.container {
+        top: 0; 
+    }
+}

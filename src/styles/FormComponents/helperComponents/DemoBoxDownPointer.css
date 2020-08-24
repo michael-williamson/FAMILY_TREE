@@ -1,0 +1,67 @@
+@keyframes demoBoxDownPointer {
+    0% {
+        opacity: 0%;
+    }
+    10%{
+        opacity: 100%;
+        visibility: visible;
+    }
+    90%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
+.demoBoxDownPointer {
+    opacity: 0;
+    z-index: 12221;
+    visibility: hidden;
+    position: fixed;
+    animation: demoBoxDownPointer;
+    animation-duration: 5000ms;
+    animation-delay: 14000ms;
+}
+
+#pointDownHandDemoBox{
+    position: absolute;
+    z-index: 12121;
+    top: -33px;
+    left: -10px;
+    margin: 0;
+}
+
+@keyframes downPointerMessage {
+    0%{
+        transform: scale(0);
+    }
+    10%{
+        transform: scale(1);
+    }
+    90%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+
+.downPointerMessage {
+    position: absolute;
+    z-index: 1221;
+    transform: scale(0);
+    left: 100px;
+    width: 189px;
+    text-align: center;
+    background-color: #297cc3;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    animation-name: downPointerMessage;
+    animation-duration: 5000ms;
+    animation-delay: 14000ms;
+}

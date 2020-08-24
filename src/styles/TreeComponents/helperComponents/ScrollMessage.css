@@ -1,0 +1,90 @@
+@keyframes scrollMessageFadeOut {
+    0% {opacity: 0%;}
+    10%{opacity: 100%; visibility: visible;}
+    90%{opacity: 100%;}
+    100% {
+        opacity: 0%;
+        visibility: hidden;
+    }
+  }
+
+  .overScrollMessageDiv {
+    position: absolute;
+    right: 2%; 
+    top: 25%; 
+    width: 43%;
+    z-index: 33211;
+    opacity: 0;
+    visibility: hidden;
+    transition:opacity 1s; 
+    animation: scrollMessageFadeOut;
+    animation-delay: 1000ms;
+    animation-duration: 8000ms;
+  }
+
+.overScrollMessage {
+    display: flex;
+    text-align: center;
+    background-color: #297cc3;
+    color: white;
+    font-weight: bolder;
+    padding: 1.25% 1.25%;
+    border-radius: 17px;
+    z-index: 1002;
+    /* letter-spacing: 1px; */
+    /* animation-fill-mode: forwards; */
+}
+
+.overScrollMessage p {
+    line-height: 2.4em;
+    /* text-decoration: underline;
+    text-underline-position: under; */
+    padding: 0 4%;
+}
+
+.scrollRightGif {
+    width: 50%;
+    height: 159px;
+    border-radius: 16px;
+}
+
+.overScrollMessage::after {
+    position: absolute;
+    content: "";
+    background: #297cc3;
+    height: 20px;
+    width: 20px;
+    transform: rotate(45deg);
+    top: 93%;
+    left: 6%;
+}
+
+i.close.icon {
+    position: absolute;
+    left: 12px;
+    top: 0%;
+    z-index: 10009;
+    background: transparent;
+    padding: 1%;
+    color: rgba(0, 0, 0, 0.76);
+    opacity: 0%;
+    animation: scrollMessageFadeOut;
+    animation-delay: 1000ms;
+    animation-duration: 8000ms;
+    cursor: pointer;
+}
+
+#questionCircleIcon {
+    position: absolute;
+    right: 2%;
+    z-index: 10000;
+    font-size: 1.5em; 
+    color: gray; 
+    cursor: pointer;
+}
+
+/*selects the overScrollMessageDiv and transitions it*/
+#questionCircleIcon:hover + div {
+    visibility: visible;
+    opacity: 100%;
+}
