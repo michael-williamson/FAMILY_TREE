@@ -28,7 +28,7 @@ class AncestorEnter extends Component {
 
     //stop instructions on intro function
     stopInstructions = () => {
-        window.sessionStorage.setItem("playAnimation","no")
+        window.sessionStorage.setItem("playAnimation","no")   
         this.props.cancelIntroAnimation(); 
     }
 

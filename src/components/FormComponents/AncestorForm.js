@@ -17,6 +17,7 @@ class AncestorForm extends Component {
     required = value => value ? undefined : 'Required';
 
     maxLength = max => value => value && value.length > max ? `Must be ${max} characters or less` : undefined;
+    maxLength50 = this.maxLength(50)
 
     submitValidation = () => {
         //form will display valid = true if all field level validators are satisfied
@@ -44,7 +45,7 @@ class AncestorForm extends Component {
                 name="ancestor" 
                 component={Input} 
                 labelProps={{label:"Ancestor",className:"ui purple horizontal label"}} 
-                validate={[this.required,this.maxLength(50)]}
+                validate={[this.required,this.maxLength50]}
                 type="text"
                 autofocus={true}
                 inputClass={""}
@@ -63,7 +64,7 @@ class AncestorForm extends Component {
             <Field 
                 //need to capitalize spouse?
                 name={`ancestorspouse`} 
-                validate={this.maxLength(50)}
+                validate={this.maxLength50}
                 component={Input} 
                 autofocus={true}
                 labelProps={{label:`Spouse`,className:"ui purple horizontal label spouseLabel"}} 
@@ -91,7 +92,7 @@ class AncestorForm extends Component {
                 component={RenderFormChildren}
                 fieldArrayReduxProps={this.props}
                 required={this.required}
-                maxLength={this.maxLength}
+                maxLength={this.maxLength50}
                 ID={"ancestorChildren"}
             /> 
             <Button className="ui button primary" disabled={this.submitValidation()} text={"Submit"}/>
