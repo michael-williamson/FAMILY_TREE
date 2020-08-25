@@ -25,9 +25,9 @@ export const ScrollMessage = (props) => {
     return (
         <Fragment>
             <i className={`question circle icon`} id="questionCircleIcon"></i>
-            <div className="overScrollMessageDiv">
-                <i class={`close icon large`} id={isDontShowValid()} onClick={dontShowMessage} title="don't show message again"></i>
-                <div className={`overScrollMessage`} id={isDontShowValid()} style={{animationPlayState:`${pauseAnimationState()}`}}>
+            <div className="overScrollMessageDiv"  id={isDontShowValid()}>
+                <i class={`close icon large`} onClick={dontShowMessage} title="don't show message again"></i>
+                <div className={`overScrollMessage`} style={{animationPlayState:`${pauseAnimationState()}`}}>
                     <div>
                         <h3>Notice:</h3>
                             <p>
