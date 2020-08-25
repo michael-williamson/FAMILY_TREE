@@ -75,7 +75,7 @@
 }
 @media screen and (min-width: 1000px) {
     .ancestorEnter{
-        width: 80%;
+        width: 90%;
         padding:0px 30px 35px; 
     }
     #stopInstructionsBtn{
@@ -85,4 +85,10 @@
         top: 20px; 
     }
     
+}
+@media screen and (min-width: 1400px) {
+    .ancestorEnter{
+        width: 80%;
+    }
+  
 }

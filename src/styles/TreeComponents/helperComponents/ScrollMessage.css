@@ -2,10 +2,7 @@
     0% {opacity: 0%;}
     10%{opacity: 100%; visibility: visible;}
     90%{opacity: 100%;}
-    100% {
-        opacity: 0%;
-        visibility: hidden;
-    }
+    100% {opacity: 0%;}
   }
 
   .overScrollMessageDiv {
@@ -17,9 +14,6 @@
     opacity: 0;
     visibility: hidden;
     transition:opacity 1s; 
-    animation: scrollMessageFadeOut;
-    animation-delay: 1000ms;
-    animation-duration: 8000ms;
   }
 
 .overScrollMessage {
@@ -68,13 +62,12 @@ i.close.icon {
     padding: 1%;
     color: rgba(0, 0, 0, 0.76);
     opacity: 0%;
-    animation: scrollMessageFadeOut;
-    animation-delay: 1000ms;
-    animation-duration: 8000ms;
+    visibility: hidden;
     cursor: pointer;
 }
 
 #questionCircleIcon {
+    visibility: hidden;
     position: absolute;
     right: 2%;
     z-index: 10000;
@@ -83,8 +76,26 @@ i.close.icon {
     cursor: pointer;
 }
 
-/*selects the overScrollMessageDiv and transitions it*/
-#questionCircleIcon:hover + div {
-    visibility: visible;
-    opacity: 100%;
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1000px) {
+    .overScrollMessageDiv {
+        animation: scrollMessageFadeOut;
+        animation-delay: 1000ms;
+        animation-duration: 8000ms;
+      }
+      i.close.icon {
+        animation: scrollMessageFadeOut;
+        animation-delay: 1000ms;
+        animation-duration: 8000ms;
+    }
+    #questionCircleIcon {
+        visibility: visible;
+    }
+    /*selects the overScrollMessageDiv and transitions it*/
+    #questionCircleIcon:hover + div {
+        visibility: visible;
+        opacity: 100%;
+    }
 }

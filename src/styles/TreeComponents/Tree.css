@@ -1,10 +1,10 @@
 .tree {
     position: relative;
-    min-height: 900px;
+    min-height: 100vh;
     background-color: rgb(255 255 255 / 92%);
-    padding:0px 30px 35px; 
+    padding:0px 17px 35px; 
     margin: 0 auto;
-    width: 80%; 
+    width: 100%; 
     overflow-x: scroll;
     box-shadow: inset -1px 0px 8px 0px black;
 }
@@ -33,6 +33,7 @@
 /* hides scroll message and close icon */
 #hide{
     opacity: 0%;
+    visibility: hidden;
 }
 
 #playIcon {
@@ -42,4 +43,26 @@
     width: 20px; 
     z-index: 1003;
     color: #0000000d;
+}
+
+@media screen and (min-width: 768px) {
+    .tree {
+        min-height: 900px;
+        background-color: rgb(255 255 255 / 92%);
+        padding:0px 30px 35px; 
+        width: 100%; 
+        box-shadow: inset -1px 0px 8px 0px black;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .tree {
+        min-height: 900px;
+        width: 90%; 
+    }
+}
+@media screen and (min-width: 1400px) {
+    .tree {
+        min-height: 900px;
+        width: 80%; 
+    }
 }

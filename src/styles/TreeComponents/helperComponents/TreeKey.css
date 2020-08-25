@@ -1,16 +1,6 @@
 .treeKey {
     height: auto;
     /* temporary height below*/
-    height:162px; 
-    /* width: 17%;  */
-    width: 26%; 
-    min-width: 175px;
-    position: absolute;
-    top:1%;
-    right:7%;
-    /* border: 3px solid #0072ff70; */
-    border-radius: 5px;
-    padding: 0% 0.3% 9%;
 }
 
 #keyHeader {
@@ -31,15 +21,8 @@
     /* justify-content: space-evenly; */
 }
 
-#keyGenerationColors .item {
-    padding: 0;
-    padding-right: 7px;
-}
-
-
 div#itemLabelMine {
     align-self: center;
-    text-align: center;
 }
 
 #keyGenerationColors #colorSelectorMine {
@@ -58,4 +41,33 @@ div#itemLabelMine {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .treeKey {
+        /* border: 3px solid #0072ff70; */
+        border-radius: 5px;
+        padding: 0% 0.3%;
+    }
+    #keyGenerationColors .item {
+        padding: 0;
+        padding-right: 7px;
+    }
+    div#itemLabelMine {
+        text-align: center;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .treeKey {
+        height:162px; 
+        /* width: 17%;  */
+        width: 26%; 
+        min-width: 175px;
+        position: absolute;
+        top:1%;
+        right:7%;
+        /* border: 3px solid #0072ff70; */
+        border-radius: 5px;
+        padding: 0% 0.3% 9%;
+    }
 }
