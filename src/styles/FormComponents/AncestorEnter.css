@@ -1,18 +1,11 @@
 .ancestorEnter{
     width: 100%; 
     position: relative;
-    padding: 0px 12px 24px;
+    padding: 0px 12px 62px;
     overflow-x:scroll; 
     margin:0 auto; 
     background-color: rgba(255, 255, 255, 0.281);
 }
-/* .ancestorEnter{
-    position: relative;
-    width: 80%;
-    margin:0 auto; 
-    background-color: rgba(255, 255, 255, 0.281);
-    padding:0px 30px 35px; 
-} */
 
 .formHeader {
     text-align: center;
@@ -26,13 +19,13 @@
     border-color: burlywood; */
 }
 
-.ancestorEnter h1 {
+.formHeader h1 {
     font-family: 'Fredericka the Great', cursive;
     font-size: 50px; 
     padding: 1%;
     /* text-shadow: 3px 2px 0px #77de65; */
     /* background-color: #00ced169; */
-    width: 36%;
+    /* width: 36%; */
     /* border-radius: 10px;
     box-shadow: inset -1px 2px 20px 0px #fbff00; */
 }
@@ -43,29 +36,53 @@
     }
     10%{
         opacity: 1;
+        visibility: visible;
     }
     90%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        visibility: hidden;
     }
 }
 
 #stopInstructionsBtn {
     position: absolute;
     opacity: 0;
-    z-index: 1010;
-    right:0;
-    left:0;
-    margin: 0 auto; 
-    top: 20px;  
-    animation-name: stopInstructionsBtnAni;
-    animation-duration: 16000ms;
-    animation-delay: 3000ms;
+    visibility: hidden;
+    z-index: 1010; 
+    cursor: pointer;
 }
 
-/* @media screen and (min-width: 300px) {
-
-} */
+@media screen and (min-width: 768px) {
+    .ancestorEnter{
+        padding:0px 30px 35px; 
+    }
+    .formHeader{
+        text-align: left;
+    }
+    .formHeader h1 {
+        width: auto; 
+    }
+    #stopInstructionsBtn{
+        animation-name: stopInstructionsBtnAni;
+        animation-duration: 16000ms;
+        animation-delay: 2000ms;
+        top: 20px;
+        right: 40px
+    }
+    
+}
+@media screen and (min-width: 1000px) {
+    .ancestorEnter{
+        width: 80%;
+        padding:0px 30px 35px; 
+    }
+    #stopInstructionsBtn{
+        right:0;
+        left:0;
+        margin: 0 auto; 
+        top: 20px; 
+    }
+    
+}

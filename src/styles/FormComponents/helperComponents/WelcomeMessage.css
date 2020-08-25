@@ -13,9 +13,7 @@
     }
 }
 
-/*correlates directly to animation in DemoBoxLeftPointer and DemoBoxDownPoint js and css esp. in animation delay and timing*/
-
-.welcomeMessage{
+.welcomeMessage {
     position: absolute;
     transform: scale(0);
     top: 25%; 
@@ -35,7 +33,18 @@
     letter-spacing: 2px;
     padding: 13px 28px;
     border-radius: 10px;
-    animation-name: welcomeMessage;
-    animation-duration: 3000ms;
-    animation-delay: 1000ms;
+}
+
+
+
+@media screen and (min-width: 768px) {
+/*correlates directly to animation in DemoBoxLeftPointer and DemoBoxDownPoint js and css esp. in animation delay and timing*/
+    .welcomeMessage{
+        animation-name: welcomeMessage;
+        animation-duration: 3000ms;
+        animation-delay: 1000ms;
+    }
+}
+@media screen and (min-width: 1000px) {
+
 }

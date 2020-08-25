@@ -16,15 +16,21 @@
     position: relative;
 }
 
+/*use this for smaller screens to layout fields in row format*/
+#ancestorChildren,#formChildrenRows {
+    display: flex;
+    align-items: center;
+}
 
-/* #item .red {
-    margin-left: 10px;
-} */
 
 #item .red {
     margin-left: 10px;
-    margin-top: 10px; 
 }
+
+/* #item .red {
+    margin-left: 10px;
+    margin-top: 10px; 
+} */
 
 .button.olive {
     border: 1px solid rgba(0, 0, 0, 0.158); 
@@ -43,16 +49,16 @@
     margin: 0;
 }
 
-/* .ui .label.spouseLabel {
+.ui .label.spouseLabel {
     margin-left: 10px; 
-} */
+}
   
 .checkbox.container {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: -13px;
+    white-space: nowrap;
 }
 
 .checkbox.container .ui.addSpouseLabel {
@@ -62,15 +68,6 @@
     margin-bottom: 2px;
 }
 
-/* .limitMessage {
-    color: white;
-    background-color: #297cc3;
-    width: 25%;
-    padding: 5px;
-    border-radius: 22px;
-    text-align: center;
-    margin-left: 70px;
-} */
 .limitMessage {
     color: white;
     background-color: #297cc3;
@@ -78,6 +75,7 @@
     padding: 5px;
     border-radius: 22px;
     text-align: center;
+    margin-left: 79px;
 }
 
 
@@ -86,12 +84,18 @@ body ::-webkit-scrollbar-thumb{
     height: 30px;
 }
 
-@media screen and (min-width: 300px) {
-
-    /* .ui.left.pointing.red.basic.label {
-        display: block;
-    } */
-    .checkbox.container {
-        top: 0; 
+@media screen and (min-width: 768px) {
+    .checkbox.container{
+        top: -5px; 
+    }
+}
+@media screen and (min-width: 1000px) {
+    .checkbox.container{
+        top: -4px; 
+    }
+    .limitMessage {
+        width: 25%;
+        padding: 5px;
+        margin-left: 70px;
     }
 }

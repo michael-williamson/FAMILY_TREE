@@ -19,9 +19,6 @@
     visibility: hidden;
     position: absolute;
     z-index: 11221;
-    animation: demoBoxDownPointer;
-    animation-duration: 10000ms;
-    animation-delay: 4000ms;
     top:12px;
     right: 50%; 
 }
@@ -53,9 +50,6 @@ i#pointLeftHandDemoBox {
     position: absolute;
     visibility: hidden;
     z-index: 1223;
-    animation-name: leftPointerAnimation;
-    animation-duration: 10000ms;
-    animation-delay: 4000ms;
 }
 
 @keyframes leftPointerMessage {
@@ -88,9 +82,6 @@ i#pointLeftHandDemoBox {
     letter-spacing: 2px;
     padding: 13px 28px;
     border-radius: 10px;
-    animation-name: leftPointerMessage;
-    animation-duration: 5000ms;
-    animation-delay: 4000ms;
 }
 
 .leftPointerMessage2{
@@ -108,7 +99,30 @@ i#pointLeftHandDemoBox {
     letter-spacing: 2px;
     padding: 13px 28px;
     border-radius: 10px;
-    animation-name: leftPointerMessage;
-    animation-duration: 5000ms;
-    animation-delay: 9000ms;
+}
+
+@media screen and (min-width: 768px) {
+    .demoBoxLeftPointer {
+        animation: demoBoxDownPointer;
+        animation-duration: 10000ms;
+        animation-delay: 4000ms;
+    }
+    i#pointLeftHandDemoBox {
+        animation-name: leftPointerAnimation;
+        animation-duration: 10000ms;
+        animation-delay: 4000ms;
+    }
+    .leftPointerMessage1{
+        animation-name: leftPointerMessage;
+        animation-duration: 5000ms;
+        animation-delay: 4000ms;
+    }
+    .leftPointerMessage2{
+        animation-name: leftPointerMessage;
+        animation-duration: 5000ms;
+        animation-delay: 9000ms;
+    }
+}
+@media screen and (min-width: 1000px) {
+
 }

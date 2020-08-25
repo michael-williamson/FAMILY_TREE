@@ -39,7 +39,7 @@ class AncestorForm extends Component {
     render() {
         return (
         <form className="ui form" onSubmit={this.props.handleSubmit(this.props.onSubmit)} autoComplete="off">
-            <div className="twelve wide mobile inline tablet column" id="ancestorChildren">
+            <div className="inline field" id="ancestorChildren">
             <Field 
                 name="ancestor" 
                 component={Input} 
@@ -47,7 +47,7 @@ class AncestorForm extends Component {
                 validate={[this.required,this.maxLength(50)]}
                 type="text"
                 autofocus={true}
-                inputClass={"ui input"}
+                inputClass={""}
                 //try destructuring this.props down to only necessary data
                 inputReduxProps={this.props}
                 //event to capture input value and pass it into redux and back down to add child button

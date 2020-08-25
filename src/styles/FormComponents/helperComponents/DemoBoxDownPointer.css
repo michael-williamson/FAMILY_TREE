@@ -19,9 +19,6 @@
     z-index: 12221;
     visibility: hidden;
     position: fixed;
-    animation: demoBoxDownPointer;
-    animation-duration: 5000ms;
-    animation-delay: 14000ms;
 }
 
 #pointDownHandDemoBox{
@@ -61,7 +58,26 @@
     letter-spacing: 2px;
     padding: 13px 28px;
     border-radius: 10px;
-    animation-name: downPointerMessage;
-    animation-duration: 5000ms;
-    animation-delay: 14000ms;
+    white-space: normal;
+}
+
+@media screen and (min-width: 768px) {
+    .demoBoxDownPointer {
+        animation: demoBoxDownPointer;
+        animation-duration: 5000ms;
+        animation-delay: 14000ms;
+    }
+    #pointDownHandDemoBox{
+        animation: demoBoxDownPointer;
+        animation-duration: 5000ms;
+        animation-delay: 14000ms;
+    }
+    .downPointerMessage {
+        animation-name: downPointerMessage;
+        animation-duration: 5000ms;
+        animation-delay: 14000ms;
+    }
+}
+@media screen and (min-width: 1000px) {
+
 }

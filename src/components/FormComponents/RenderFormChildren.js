@@ -43,7 +43,7 @@ let RenderFormChildren = (props) => {
         <div className="ui list" id="ul">
             {fields.map((child,index)=>{
                return ( <div className="item" id="item" key={index}>
-                    <div className="six wide mobile inline tablet field">
+                    <div className="inline field" id="formChildrenRows">
                     <Field 
                         name={`${child}field`} 
                         component={Input} 
