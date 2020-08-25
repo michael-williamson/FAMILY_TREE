@@ -11,8 +11,6 @@ class ChildrenNodes extends Component {
             let lastChild = this.props.children.length - 1;
             let noSiblings = this.props.children.length === 1 ? "noSiblings" : null; 
             let generation = this.props.children[0].generation || 0; 
-            let genPxObject = this.props.genPxObject; 
-            let lastGeneration = this.props.genPxObject[this.props.genPxObject?.length - 1].generation
             let {colorArray,ordinalNumerals} = this.props; 
 
             return this.props.children.map((child,i) => {
@@ -30,13 +28,9 @@ class ChildrenNodes extends Component {
                                     lastChild={i=== lastChild?"lastChild":""} 
                                     noSiblings={noSiblings?"noSiblings":""}
                                     parentHeight={30} 
-                                    // top={height/2}
                                     generation={generation}
-                                    genPxObject={genPxObject}
                                     colorArray={colorArray}
                                     ordinalNumerals={ordinalNumerals}
-                                    // percentage={`0.${generation + 2}`}
-                                    // red={`${255 - (generation * 35)}`}
                                 />
                     }else if (child.children) {
                             return  <TreeNode 
@@ -52,15 +46,11 @@ class ChildrenNodes extends Component {
                                         lastChild={i=== lastChild?"lastChild":""} 
                                         noSiblings={noSiblings?"noSiblings":""}
                                         parentHeight={'auto'} 
-                                        // top={child.pxCount/2} 
                                         children = {child.children} 
                                         hasChildren = {"hasChildren"}
                                         generation={generation}
-                                        genPxObject={genPxObject}
                                         colorArray={colorArray}
                                         ordinalNumerals={ordinalNumerals}
-                                        // percentage={`0.${generation + 2}`}
-                                        // red={`${255 - (generation * 35)}`}
                                     />
                         } 
                         return null; 
