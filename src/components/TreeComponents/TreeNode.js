@@ -37,7 +37,7 @@ class TreeNode extends Component {
 
                     </div>
                     {hasChildren? <div style={{position:'relative'}}>
-                                    <i class="minus purple icon minimizer" onClick={this.hideOrShowIsChildren}></i>
+                                    <i className="minus purple icon minimizer" onClick={this.hideOrShowIsChildren}></i>
                                     <div className="isChildren"> 
                                         {isAncestor?null:<div className="pointerDiv"></div>}
                                         <ChildrenNodes {...this.props}/>

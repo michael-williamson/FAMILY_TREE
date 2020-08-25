@@ -20,10 +20,9 @@ class Tree extends Component {
       }
 
     render() {
-        console.log("render has run")
         return (
             <div className="tree">
-                <i class="play icon" id="playIcon" onClick={this.cancelSessionStorage}></i>
+                <i className="play icon" id="playIcon" onClick={this.cancelSessionStorage}></i>
                 <h1>Family Tree</h1>
                 <ScrollMessage/> 
                 <TreeKey colorArray={this.colorArray}/>

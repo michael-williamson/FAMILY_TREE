@@ -5,7 +5,7 @@ import '../../../styles/FormComponents/helperComponents/DemoBoxLeftPointer.css'
 export const DemoBoxLeftPointer = () => {
     return (
         <div className="demoBoxLeftPointer">
-            <i class="hand point left outline big blue icon" id="pointLeftHandDemoBox"></i>
+            <i className="hand point left outline big blue icon" id="pointLeftHandDemoBox"></i>
             <div className="leftPointerMessage1">
                 Start by entering the Ancestor of your Family Tree!
             </div>

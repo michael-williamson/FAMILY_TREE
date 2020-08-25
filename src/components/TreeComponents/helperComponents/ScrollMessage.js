@@ -19,14 +19,11 @@ export const ScrollMessage = (props) => {
         else if(window.sessionStorage.getItem('noShowMessage') === "show") return "running"
     }
 
-    const cancelSessionStorage = () => {
-        window.sessionStorage.setItem('noShowMessage',"show")
-    }
     return (
         <Fragment>
             <i className={`question circle icon`} id="questionCircleIcon"></i>
             <div className="overScrollMessageDiv"  id={isDontShowValid()}>
-                <i class={`close icon large`} onClick={dontShowMessage} title="don't show message again"></i>
+                <i className={`close icon large`} onClick={dontShowMessage} title="don't show message again"></i>
                 <div className={`overScrollMessage`} style={{animationPlayState:`${pauseAnimationState()}`}}>
                     <div>
                         <h3>Notice:</h3>

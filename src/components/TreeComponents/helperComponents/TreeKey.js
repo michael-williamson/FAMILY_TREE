@@ -46,10 +46,10 @@ export const TreeKey = (props) => {
                 </div>
                 <div className="ui eight wide mobile four wide tablet column relaxed grid" id="minimizerIcons">
                     <div className="item eight wide column">
-                        <i class="plus purple icon"></i>
+                        <i className="plus purple icon"></i>
                     </div>
                     <div className="item eight wide column">
-                        <i class="minus purple icon"></i>
+                        <i className="minus purple icon"></i>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ export const TreeKey = (props) => {
             <div className="item">
                 <div className="ui two column centered padded mobile only grid">
                     <div className="centered row">
-                            <i class="arrow circle down huge blue icon"></i>
+                            <i className="arrow circle down huge blue icon"></i>
                     </div>
                     <div className="centered row">
                         <h4>Scroll Down for Tree</h4>

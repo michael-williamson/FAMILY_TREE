@@ -8,7 +8,7 @@ let RenderFormChildren = (props) => {
     //fields are associated with Field Array,  fieldArrayReduxProps
     //are just the main group of props being passed all the way down,
     //and required is the validate function passed down
-    let {fields,fieldArrayReduxProps,required,maxLength,ID,ordinalNumerals} = props; 
+    let {fields,fieldArrayReduxProps,required,maxLength} = props; 
 
     let regEx = /\[\d+\]/g;
     let bracketArr = fields.name.match(regEx);

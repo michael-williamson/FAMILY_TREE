@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 //css
 import '../../../styles/FormComponents/helperComponents/WelcomeMessage.css'
 
