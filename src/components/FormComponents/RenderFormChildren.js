@@ -12,7 +12,6 @@ let RenderFormChildren = (props) => {
 
     let regEx = /\[\d+\]/g;
     let bracketArr = fields.name.match(regEx);
-    console.log(bracketArr)
 
     let addValidation = () => {
         if(!fieldArrayReduxProps.valid || fieldArrayReduxProps.pristine){
@@ -21,6 +20,7 @@ let RenderFormChildren = (props) => {
             return false
         }
     }
+
     //button receives name associated with its parent array,  this is 
     //taken care of by the fieldValue state
     let btnName = ""
@@ -48,7 +48,7 @@ let RenderFormChildren = (props) => {
                         name={`${child}field`} 
                         component={Input} 
                         labelProps={{label:`${fieldArrayReduxProps.ordinalNumerals(index + 1)} Child`,className:"ui purple horizontal label"}} 
-                        validate={[required,maxLength(50)]}
+                        validate={[required,maxLength]}
                         autofocus={true}
                         inputClass={""}
                         inputReduxProps={fieldArrayReduxProps}
@@ -60,7 +60,7 @@ let RenderFormChildren = (props) => {
                     {spouseState(`${child}isSpouse`) &&
                     <Field 
                         name={`${child}spouse`} 
-                        validate={maxLength(50)}
+                        validate={maxLength}
                         component={Input} 
                         autofocus={true}
                         labelProps={{label:`Spouse`,className:"ui purple horizontal label spouseLabel"}} 
@@ -76,13 +76,17 @@ let RenderFormChildren = (props) => {
                     //whether to render spouse Field component; passing newValue, name of Field component, and prevState to compare and update
                     onChange={(event, newValue, previousValue, name)=>{
                         if(newValue === false){
-                            fieldArrayReduxProps.clearFields(false,false,[`${child}field${index}spouse`]);
+                            fieldArrayReduxProps.clearFields(false,false,[`${child}spouse`]);
                         }
                         fieldArrayReduxProps.getSpouseState(newValue,name,fieldArrayReduxProps.spouseState)
                     }
                     }
                     />
-                    <button type="button" className="ui red mini button" title="Remove Child Input" onClick={()=>fields.remove(index)}>
+                    <button type="button" className="ui red mini button" title="Remove Child Input" onClick={()=>{
+                                fields.remove(index);
+                                fieldArrayReduxProps.clearFields(false,false,[`${child}field`,`${child}spouse`]);
+                                fieldArrayReduxProps.getSpouseState(false,`${child}isSpouse`,fieldArrayReduxProps.spouseState)
+                    }}>
                         <i className="trash icon"></i>
                     </button>
                     </div>
