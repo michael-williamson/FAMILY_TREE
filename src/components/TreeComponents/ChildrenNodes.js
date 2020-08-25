@@ -10,7 +10,7 @@ class ChildrenNodes extends Component {
             let firstChild = 0;
             let lastChild = this.props.children.length - 1;
             let noSiblings = this.props.children.length === 1 ? "noSiblings" : null; 
-            let generation = this.props.children[0].generation; 
+            let generation = this.props.children[0].generation || 0; 
             let genPxObject = this.props.genPxObject; 
             let lastGeneration = this.props.genPxObject[this.props.genPxObject?.length - 1].generation
             let {colorArray,ordinalNumerals} = this.props; 
