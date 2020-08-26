@@ -49,7 +49,7 @@ const mappingFn = () => {
 let newObj = mappingFn();
 
 
-history.push("/tree");
+history.push(`${process.env.PUBLIC_URL}/tree`);
 
 return {
     type: CREATE_TREE,
