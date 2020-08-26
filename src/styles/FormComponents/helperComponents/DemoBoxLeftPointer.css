@@ -1,16 +1,16 @@
 @keyframes demoBoxLeftPointer {
     0% {
-        opacity: 0%;
+        opacity: 0;
     }
     10%{
-        opacity: 100%;
+        opacity: 1;
         visibility: visible;
     }
     90%{
-        opacity: 100%;
+        opacity: 1;
     }
     100%{
-        opacity: 0%;
+        opacity: 0;
     }
 }
 
@@ -25,7 +25,7 @@
 
 @keyframes leftPointerAnimation{
     0%{
-        opacity: 100%;
+        opacity: 1;
         visibility: visible;
         transform: translate(0px,0px);
     }
@@ -36,11 +36,11 @@
         transform: translate(-223px,65px);
     }
     90%{
-        opacity: 100%;
+        opacity: 1;
         transform: translate(-223px,65px);
     }
     100%{
-        opacity: 0%;
+        opacity: 0;
         transform: translate(-223px,65px);
         visibility: hidden;
     }

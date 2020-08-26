@@ -1,8 +1,8 @@
 @keyframes scrollMessageFadeOut {
-    0% {opacity: 0%;}
-    10%{opacity: 100%; visibility: visible;}
-    90%{opacity: 100%;}
-    100% {opacity: 0%;}
+    0% {opacity: 0;}
+    10%{opacity: 1; visibility: visible;}
+    90%{opacity: 1;}
+    100% {opacity: 0;}
   }
 
   .overScrollMessageDiv {
@@ -61,7 +61,7 @@ i.close.icon {
     background: transparent;
     padding: 1%;
     color: rgba(0, 0, 0, 0.76);
-    opacity: 0%;
+    opacity: 0;
     visibility: hidden;
     cursor: pointer;
 }
@@ -96,6 +96,6 @@ i.close.icon {
     /*selects the overScrollMessageDiv and transitions it*/
     #questionCircleIcon:hover + div {
         visibility: visible;
-        opacity: 100%;
+        opacity: 1;
     }
 }
