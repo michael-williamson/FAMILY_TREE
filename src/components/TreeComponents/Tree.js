@@ -38,7 +38,7 @@ class Tree extends Component {
                     ordinalNumerals={this.ordinalNumerals}
                     {...this.props}
                 />
-                <Link type="button" className="ui blue mini button" to="/"><i className="arrow left icon"></i>Back to Form</Link>
+                <Link type="button" className="ui blue mini button" to={`${process.env.PUBLIC_URL}/`}><i className="arrow left icon"></i>Back to Form</Link>
             </div>
         );
     }
