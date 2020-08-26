@@ -43,6 +43,7 @@ class AncestorForm extends Component {
             <div className="inline field" id="ancestorChildren">
             <Field 
                 name="ancestor" 
+                assocArray={"ancestorChildren"}
                 component={Input} 
                 labelProps={{label:"Ancestor",className:"ui purple horizontal label"}} 
                 validate={[this.required,this.maxLength50]}

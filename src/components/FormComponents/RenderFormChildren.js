@@ -46,6 +46,7 @@ let RenderFormChildren = (props) => {
                     <div className="inline field" id="formChildrenRows">
                     <Field 
                         name={`${child}field`} 
+                        assocArray={`${child}arr`}
                         component={Input} 
                         labelProps={{label:`${fieldArrayReduxProps.ordinalNumerals(index + 1)} Child`,className:"ui purple horizontal label"}} 
                         validate={[required,maxLength]}
