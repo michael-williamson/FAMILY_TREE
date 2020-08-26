@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <Router history={history} basename={`${process.env.PUBLIC_URL}/`}>
-        <Route exact path="/" render={(routeProps)=><AncestorEnter {...routeProps}/>}/>
-        <Route exact path="/tree" render={()=><Tree/>}/>
+        <Route exact path={`${process.env.PUBLIC_URL}/`} render={(routeProps)=><AncestorEnter {...routeProps}/>}/>
+        <Route exact path={`${process.env.PUBLIC_URL}/tree`} render={()=><Tree/>}/>
       </Router>
     </div>
   );
