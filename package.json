@@ -1,5 +1,5 @@
 {
-  "homepage": "http://michael-williamson.github.io/FAMILY_TREE",
+  "homepage": "https://michael-williamson.github.io/FAMILY_TREE/",
   "name": "family_tree",
   "version": "0.1.0",
   "private": true,
@@ -18,7 +18,8 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b master -d build",
+    "clean" : "gh-pages-clean",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
