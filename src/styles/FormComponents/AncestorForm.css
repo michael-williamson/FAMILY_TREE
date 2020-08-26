@@ -62,6 +62,10 @@
     cursor: pointer;
 }
 
+.checkbox.container input {
+    cursor: pointer;
+}
+
 .checkbox.container .ui.addSpouseLabel {
     color: purple; 
     background-color: transparent;
