@@ -10,7 +10,7 @@ import AncestorEnter from './components/FormComponents/AncestorEnter';
 function App() {
   return (
     <div className="App">
-      <Router history={history}>
+      <Router history={history} basename={`${process.env.PUBLIC_URL}/`}>
         <Route exact path="/" render={(routeProps)=><AncestorEnter {...routeProps}/>}/>
         <Route exact path="/tree" render={()=><Tree/>}/>
       </Router>
