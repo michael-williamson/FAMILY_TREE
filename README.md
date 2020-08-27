@@ -9,8 +9,8 @@
 
 ## Table of Contents
 
-* [General Info]
-* [Technologies]
+* [General Info](#general-info)
+* [Technologies](#technologies)
 
 
 ## General Info
