@@ -4,13 +4,13 @@ import TreeNode from './TreeNode';
 
 class ChildrenNodes extends Component {
 
-    renderChildNodes(parentHeight,Arg){
-        if (this.props.children) {
+    renderChildNodes(){
+        if (this.props.children && this.props.children.length > 0) {
             //setting index for each last children for border styling on last child
             let firstChild = 0;
             let lastChild = this.props.children.length - 1;
             let noSiblings = this.props.children.length === 1 ? "noSiblings" : null; 
-            let generation = this.props.children[0].generation || 0; 
+            let generation = this.props.children[0].generation; 
             let {colorArray,ordinalNumerals} = this.props; 
 
             return this.props.children.map((child,i) => {
