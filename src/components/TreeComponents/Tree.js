@@ -18,6 +18,11 @@ class Tree extends Component {
         let v = n%100;
        return n + (s[(v-20)%10] || s[v] || s[0]);
       }
+      
+    //stop instructions on intro function for FormEnter Component
+    stopInstructions = () => {
+        window.sessionStorage.setItem("playAnimation","no")   
+    }
 
     render() {
         return (
@@ -38,7 +43,7 @@ class Tree extends Component {
                     ordinalNumerals={this.ordinalNumerals}
                     {...this.props}
                 />
-                <Link type="button" className="ui blue mini button" to={`${process.env.PUBLIC_URL}/`}><i className="arrow left icon"></i>Back to Form</Link>
+                <Link type="button" className="ui blue mini button" to={`${process.env.PUBLIC_URL}/`} onClick={this.stopInstructions}><i className="arrow left icon"></i>Back to Form</Link>
             </div>
         );
     }
