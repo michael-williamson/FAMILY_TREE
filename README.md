@@ -1,11 +1,11 @@
 #       FAMILY TREE TRAVERSAL                                                                 
 
-#### Family Tree App that orders each level by ancestors and descendants \
+#### Family Tree App that orders each level by ancestors and descendants
 
 
 
 
-### Visit Site: [https://michael-williamson.github.io/FAMILY_TREE/](https://michael-williamson.github.io/FAMILY_TREE/)
+#### [https://michael-williamson.github.io/FAMILY_TREE/](https://michael-williamson.github.io/FAMILY_TREE/)
 
 
 
