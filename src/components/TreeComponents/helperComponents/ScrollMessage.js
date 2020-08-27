@@ -5,13 +5,11 @@ import '../../../styles/TreeComponents/helperComponents/ScrollMessage.css';
 import scrollRightGif from '../../../media/scroll_right.gif'
 
 export const ScrollMessage = (props) => {
-    const dontShowMessage = () => {
-        window.sessionStorage.setItem("noShowMessage","hide");
-    }
 
-    const isDontShowValid = () => {
-        if(window.sessionStorage.getItem('noShowMessage') === "hide") return "hide";
-        else if(window.sessionStorage.getItem('noShowMessage') === "show") return "";
+
+    const dontShowMessage = (e) => {
+        window.sessionStorage.setItem("noShowMessage","hide");
+        e.target.parentElement.style.animation = "none";
     }
 
     const pauseAnimationState = () => {
@@ -22,9 +20,9 @@ export const ScrollMessage = (props) => {
     return (
         <Fragment>
             <i className={`question circle icon`} id="questionCircleIcon"></i>
-            <div className="overScrollMessageDiv"  id={isDontShowValid()}>
+            <div className="overScrollMessageDiv" style={{animationPlayState:`${pauseAnimationState()}`}}>
                 <i className={`close icon large`} onClick={dontShowMessage} title="don't show message again"></i>
-                <div className={`overScrollMessage`} style={{animationPlayState:`${pauseAnimationState()}`}}>
+                <div className={`overScrollMessage`}>
                     <div>
                         <h3>Notice:</h3>
                             <p>

@@ -28,14 +28,6 @@
     margin: 0; 
 }
 
-
-
-/* hides scroll message and close icon */
-#hide{
-    opacity: 0%;
-    visibility: hidden;
-}
-
 #playIcon {
     position: absolute;
     left : 6%; 
