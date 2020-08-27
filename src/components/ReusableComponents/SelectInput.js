@@ -20,7 +20,7 @@ export function SelectInput(...props) {
         <div className="checkbox container">
             {DemoBoxDownPointer ? DemoBoxDownPointer : null}
             <div className={className}>{label}</div>
-            <input {...input} type="checkbox" />
+            <input {...input} type="checkbox" checked={input.value} />
         </div>
     );
 }
