@@ -1,8 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { shallow } from "enzyme";
 import ReactDOM from "react-dom";
 import Root from "./Root";
 import App from "./App";
+import AncestorEnter from "components/FormComponents/AncestorEnter";
+import Tree from "components/TreeComponents/Tree";
 
 // test("renders learn react link", () => {
 //   const { getByText } = render(<App />);
@@ -21,4 +24,18 @@ it("renders without crashing", () => {
   );
 
   ReactDOM.unmountComponentAtNode(div);
+});
+
+let wrapped;
+
+beforeEach(() => {
+  wrapped = shallow(<App />);
+});
+
+it("shows the AncestorEnter component", () => {
+  expect(wrapped.find(AncestorEnter));
+});
+
+it("shows the Tree component", () => {
+  expect(wrapped.find(Tree));
 });
