@@ -1,12 +1,7 @@
-import React from 'react';
+import React from "react";
 //css
-import '../../../styles/FormComponents/helperComponents/WelcomeMessage.css'
+import "../../../styles/FormComponents/helperComponents/WelcomeMessage.css";
 
 export const WelcomeMessage = (props) => {
-
-    return (
-        <div className="welcomeMessage">
-            Welcome to Family Tree!
-        </div>
-    );
+  return <div className="welcomeMessage">Welcome to Family Tree!</div>;
 };
