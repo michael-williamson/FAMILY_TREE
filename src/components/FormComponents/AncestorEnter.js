@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 //components
 import AncestorForm from "./AncestorForm";
-import IconTree from "./IconTree";
 import { WelcomeMessage } from "./helperComponents/WelcomeMessage.js";
 //action creators
 import { createTree } from "../../actions/index";
@@ -44,7 +43,6 @@ class AncestorEnter extends Component {
       <div className="ancestorEnter">
         <div className="formHeader">
           <h1>Family Tree</h1>
-          <IconTree />
         </div>
         {this.props.cancelIntro ? null : (
           <button
