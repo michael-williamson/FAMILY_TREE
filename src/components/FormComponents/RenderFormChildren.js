@@ -8,7 +8,13 @@ let RenderFormChildren = (props) => {
   //fields are associated with Field Array,  fieldArrayReduxProps
   //are just the main group of props being passed all the way down,
   //and required is the validate function passed down
-  let { fields, fieldArrayReduxProps, required, maxLength } = props;
+  let {
+    fields,
+    fieldArrayReduxProps,
+    required,
+    maxLength,
+    noSpacesBefore,
+  } = props;
 
   let regEx = /\[\d+\]/g;
   let bracketArr = fields.name.match(regEx);
@@ -55,7 +61,7 @@ let RenderFormChildren = (props) => {
                   )} Child`,
                   className: "ui purple horizontal label",
                 }}
-                validate={[required, maxLength]}
+                validate={[required, maxLength, noSpacesBefore]}
                 autofocus={true}
                 inputClass={""}
                 inputReduxProps={fieldArrayReduxProps}
@@ -140,6 +146,7 @@ let RenderFormChildren = (props) => {
                 fieldArrayReduxProps={fieldArrayReduxProps}
                 required={required}
                 maxLength={maxLength}
+                noSpacesBefore={noSpacesBefore}
                 ID={`${child}arr`}
               />
             )}

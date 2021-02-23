@@ -15,6 +15,14 @@ class AncestorForm extends Component {
   //an infinite loop,  passed down through props to each component
   required = (value) => (value ? undefined : "Required");
 
+  noSpacesBefore = (value) => {
+    let noSB = /^[a-zA-Z]/;
+    let onlyLetters = /[a-zA-Z\s]/g;
+    return noSB.test(value) && onlyLetters.test(value)
+      ? undefined
+      : "Must not have spaces before name and must contain only letters";
+  };
+
   maxLength = (max) => (value) =>
     value && value.length > max
       ? `Must be ${max} characters or less`
@@ -55,7 +63,7 @@ class AncestorForm extends Component {
               label: "Ancestor",
               className: "ui purple horizontal label",
             }}
-            validate={[this.required, this.maxLength50]}
+            validate={[this.required, this.maxLength50, this.noSpacesBefore]}
             type="text"
             autofocus={true}
             inputClass={""}
@@ -80,7 +88,7 @@ class AncestorForm extends Component {
             <Field
               //need to capitalize spouse?
               name={`ancestorspouse`}
-              validate={this.maxLength50}
+              validate={[this.maxLength50, this.noSpacesBefore]}
               component={Input}
               autofocus={true}
               labelProps={{
@@ -120,6 +128,7 @@ class AncestorForm extends Component {
           fieldArrayReduxProps={this.props}
           required={this.required}
           maxLength={this.maxLength50}
+          noSpacesBefore={this.noSpacesBefore}
           ID={"ancestorChildren"}
         />
         <Button
